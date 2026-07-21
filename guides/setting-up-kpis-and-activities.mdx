@@ -1,0 +1,201 @@
+---
+title: "Set Up KPIs and Activities in Terriqon"
+sidebarTitle: "KPIs & Activities"
+description: "Define measurable success targets (KPIs) and the time-bound tasks that move them (Activities). Manual and bulk-import walkthroughs, with the immutable-field rules that matter."
+---
+
+**KPIs** are the measurable targets that define what success looks like on a project. **Activities** are the specific, time-bound tasks that move each KPI forward. Together they're your measurement backbone: activity progress rolls up into KPI achieved-values automatically, KPI status colors your dashboards green / amber / red, and both feed the numbers that end up in your AI reports. This guide walks through creating both, one at a time or in bulk, and calls out the fields you can't change later.
+
+For how KPIs and Activities fit into the project as a whole, see [Projects → KPIs, activities, and reports](/concepts/projects#kpis-activities-and-reports).
+
+## Before You Start
+
+Two fields on these objects **cannot** be changed once you save. Get them right the first time:
+
+- **KPI Type** — Numeric, Percentage, or Binary. Locked immediately after save. Changing your mind means creating a new KPI and archiving the old one.
+- **The Associated KPI on an Activity** — an Activity is permanently tied to the KPI it was created under. Same rule: to move an activity to a different KPI, create a new one.
+
+Also worth thinking through before you click:
+
+- **Which project owns each KPI?** A KPI belongs to exactly one project. Multi-project measurement rolls up at the Portfolio level.
+- **What's the target and what's the baseline?** Baseline is optional but useful — it's the starting measure before your intervention (e.g. "literacy was 40% before the project") and it makes progress interpretable.
+- **Are you setting up one at a time or a batch?** Both KPIs and Activities support bulk import from Excel, which is much faster if you're setting up 15 KPIs at project kickoff.
+
+## Creating a KPI
+
+<Steps>
+  <Step title="Open the KPI form">
+    Two entry points:
+
+    - Inside a project, open the **KPI & Activities** tab and click **\+ KPI**. The KPI is pre-linked to that project.
+    - Globally, go to **KPIs** in the left sidebar and click **Add KPI**. You'll pick the project in the form.
+  </Step>
+  <Step title="Fill in Basic Info">
+    | Field | Required | Notes |
+    | --- | --- | --- |
+    | **KPI Title** | Yes | Be specific. `# of Female Beneficiaries Enrolled in Vocational Training in Sindh` beats `Training KPI` — precision here improves AI report quality later. |
+    | **Description** | No | How is this KPI measured? What counts as progress? Written for the person who reads the report six months from now. |
+    | **Project** | Yes | Searchable dropdown. Pre-filled if you opened the form from inside a project. |
+    | **Reporting Frequency** | No | Daily, Weekly, Monthly, Quarterly, or Annually. Sets the cadence Terriqon expects updates at. |
+    | **KPI Type** | Yes | Numeric, Percentage, or Binary. **Locked after save.** See [Choosing a KPI Type](#choosing-a-kpi-type) below. |
+  </Step>
+  <Step title="Set Targets and Baseline">
+    Which fields appear here depends on the type you picked.
+
+    | Field | Required for | Notes |
+    | --- | --- | --- |
+    | **Target Value** | Numeric, Percentage | The goalpost — 500 beneficiaries, 80%, whatever the type demands. **Locked after save.** |
+    | **Baseline Value** | Optional | Starting measure before intervention. Highly recommended for Percentage KPIs — it makes "80%" meaningful in context of what the number was before. |
+    | **Unit of Measurement** | Numeric | "beneficiaries", "schools", "households", "metric tons" — whatever you're counting. |
+    | **Binary Status** | Binary (edit mode only) | Incomplete or Complete. New Binary KPIs start Incomplete. |
+  </Step>
+  <Step title="Save">
+    Click **Save**. The KPI appears in the project's KPI & Activities tab with an empty progress bar, ready for activities to feed it.
+  </Step>
+</Steps>
+
+### Choosing a KPI Type
+
+Because the type is locked after save, this decision is worth making deliberately.
+
+| Type | Use when | Example |
+| --- | --- | --- |
+| **Numeric** | You're counting discrete things and adding them up | `500 beneficiaries reached`, `100 schools inspected`, `2,000 vaccinations administered` |
+| **Percentage** | You're tracking a rate or ratio against a total | `80% of children vaccinated`, `95% of facilities passed inspection`, `60% completion rate` |
+| **Binary** | It's a yes/no milestone with no partial credit | `Policy signed: Yes/No`, `Phase 1 completed: Yes/No`, `MoU executed: Yes/No` |
+
+<Tip>
+  If you're unsure whether something is Numeric or Percentage, ask: "is my ceiling a fixed count, or a proportion of a larger group?" 500 beneficiaries is Numeric (the ceiling is 500). 80% of a district's children is Percentage (the ceiling is the district's total).
+</Tip>
+
+## Bulk-Importing KPIs from Excel
+
+Useful when you're setting up several KPIs at project kickoff.
+
+<Steps>
+  <Step title="Open the bulk import flow">
+    From **KPIs** in the left sidebar, click **Bulk Import** and select the target project. All imported KPIs will belong to this project.
+  </Step>
+  <Step title="Download the sample template">
+    Click **Download Template** to get the Excel file. Columns match the manual form: title, type, target, unit, frequency, and so on.
+  </Step>
+  <Step title="Fill KPIs row by row">
+    One KPI per row. Keep the column names as they are — the importer matches by column name.
+  </Step>
+  <Step title="Upload and review errors">
+    Upload the completed file. The system validates every row and shows **row-level errors inline** — for example, an invalid KPI Type, a missing Unit on a Numeric KPI, or a bad project reference. Fix the flagged rows in the file and upload again.
+  </Step>
+  <Step title="Confirm">
+    Once all rows pass validation, confirm the import. Every valid row becomes a KPI on the target project.
+  </Step>
+</Steps>
+
+## Adding Activities to a KPI
+
+An Activity is a specific, time-bound piece of work under a KPI — the actual thing your team is doing on the ground to move that KPI forward. Every Activity must be linked to a KPI.
+
+Think of it like this:
+
+- **KPI**: Vaccinate 500 children
+- **Activities**: Outreach in Village A \+ Vaccination camp in Village B \+ Follow-up in Village C
+
+<Steps>
+  <Step title="Open the Activity form">
+    Two entry points:
+
+    - Inside a project, open **KPI & Activities**, expand the KPI, and click **\+ Activity**. The KPI (and project) are pre-linked.
+    - Globally, go to **Activities** in the left sidebar and click **Add Activity**. You'll pick the KPI in the form.
+  </Step>
+  <Step title="Confirm Strategic Alignment">
+    | Field | Required | Notes |
+    | --- | --- | --- |
+    | **Associated KPI** | Yes | Searchable dropdown. **Locked after save.** The activity is permanently tied to this KPI. |
+    | **Project** | — | Read-only. Auto-filled from the KPI's project. |
+  </Step>
+  <Step title="Fill in Basic Info">
+    | Field | Required | Notes |
+    | --- | --- | --- |
+    | **Activity Title** | Yes | Specific. `Conduct Awareness Session in Sukkur District` beats `Outreach`. |
+    | **Description** | No | Steps, scope, expected participants. |
+    | **Status** | — | Auto-set to **Not Started** on creation. In edit mode: Not Started, In Progress, Completed, Cancelled. |
+    | **Completion %** | Percentage KPIs only | Tracks partial progress toward the parent KPI (0–100). |
+    | **Country** | No | Where the activity takes place. |
+    | **State** | No | Unlocks after Country. |
+    | **Cities** | No | Multi-select; unlocks after State. |
+  </Step>
+  <Step title="Set Timeline and Resources">
+    | Field | Required | Notes |
+    | --- | --- | --- |
+    | **Planned Start Date** | Yes | When the activity begins. |
+    | **Planned End Date** | Yes | Must be after Start Date. Passing this date without the activity being Completed marks it **overdue**. |
+    | **Budget Allocation** | No | Shown with your organization's currency symbol. |
+    | **Expected Output** | No | Concrete deliverable: `100 households surveyed`, `30 participants trained`. |
+  </Step>
+  <Step title="Save">
+    Click **Save**. The activity appears under its parent KPI in the KPI & Activities tab, and starts contributing to the KPI's progress as soon as its status moves.
+  </Step>
+</Steps>
+
+## Bulk-Importing Activities from Excel
+
+One important difference from KPI bulk import: activities need to know which KPI they belong to.
+
+<Steps>
+  <Step title="Get the KPI IDs you'll reference">
+    From the KPI list, copy the **KPI ID** for each parent KPI. You'll paste these into your Excel file so the importer can link every activity to the right KPI (and via the KPI, to the right project).
+  </Step>
+  <Step title="Download the Activity template">
+    From **Activities** in the left sidebar, click **Bulk Import** and download the Activity Bulk Upload Template.
+  </Step>
+  <Step title="Fill activities row by row">
+    One activity per row. Paste the KPI ID into the KPI column for each row — this is the field that ties the activity to its parent.
+  </Step>
+  <Step title="Upload and fix any errors">
+    Row-level validation errors are shown inline, exactly like the KPI import. A common error here is a missing or misspelled KPI ID.
+  </Step>
+</Steps>
+
+## How Activities Move KPIs
+
+Different KPI types accumulate progress differently. Knowing this helps you write activity titles and set completion values that actually move the needle.
+
+| KPI Type | What updates the KPI's achieved value |
+| --- | --- |
+| **Numeric** | The count entered on each activity is added to the KPI's running total. Ten activities of `50 households surveyed` push a `500 households` KPI to 100%. |
+| **Percentage** | Each activity's Completion % contributes to the parent KPI's overall progress. When an activity reaches 100%, it's marked Completed and the KPI advances. |
+| **Binary** | The KPI flips from Incomplete to Complete when its underlying activity is marked Completed. |
+
+Activity status auto-logic worth knowing:
+
+- **New activity** → automatically **Not Started**.
+- **Planned End Date passes without Completed** → activity is flagged **overdue** on the dashboard.
+- **Activity marked Completed** → counts toward the parent KPI according to that KPI's type (as above).
+
+## Dashboard and Reports
+
+Once KPIs and Activities exist, they show up automatically in two places:
+
+- **The project Dashboard** — as KPI progress rings/bars with green/amber/red status, plus an Activity Timeline of what's running. See [KPI Dashboards](/guides/kpi-dashboards).
+- **AI Reports** — the KPI status section of every report is drawn from these values. Precise KPI titles (with numbers, target populations, and locations) produce noticeably better report narratives than vague ones. See [Approving Reports](/guides/reviewing-and-approving-reports).
+
+## Editing Later
+
+What you can change after a KPI or Activity is saved, and what you can't:
+
+| Field | Editable? |
+| --- | --- |
+| KPI Title, Description, Reporting Frequency, Baseline, Unit | Yes |
+| KPI **Type** | **No** — locked after save |
+| KPI **Target Value** | **No** — locked after save |
+| Activity Title, Description, Status, Completion %, Location, Dates, Budget, Output | Yes |
+| Activity's **Associated KPI** | **No** — locked after save |
+
+If you need to change any of the locked fields, the answer is the same in both cases: create a new KPI (or activity) with the correct value, and cancel or delete the incorrect one.
+
+## Next Steps
+
+With your measurement layer in place, everything else falls into a familiar rhythm:
+
+1. [Field Officers collect data](/guides/collecting-data) — approved submissions on Numeric and Percentage KPIs start moving the achieved value.
+2. [Monitor progress](/guides/kpi-dashboards) — catch amber KPIs before they turn red.
+3. [Generate and approve reports](/guides/reviewing-and-approving-reports) — KPI status is a headline section on every report type.

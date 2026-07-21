@@ -1,0 +1,100 @@
+---
+title: "Projects in Terriqon: The Central Container for Your Work"
+sidebarTitle: "Projects"
+description: "A Project is the container everything in Terriqon lives inside — your registry or form, team, KPIs, submissions, documents, and AI reports."
+---
+
+A **Project** is the top-level container in Terriqon. Every other object — your registry types, forms, KPIs, activities, documents, submissions, and AI reports — lives inside a project. Think of a project as one funding cycle or one programme implementation phase: it has a name, a timeline, a location, a team, and measurable goals. Because everything hangs off a project, this is the first thing you create in any new workflow.
+
+## Why the project comes first
+
+Your project's purpose decides everything downstream. A food-security programme in a specific region tells you what entity to track (Beneficiary, with attributes like household size and income bracket), what fields your form needs, and what KPIs are meaningful. Creating the project first — before designing your registry or form — forces that thinking upfront and prevents rework later.
+
+Once a project exists, you have somewhere to attach the rest: the registry type or form you'll use to collect data, the team that will run it, the KPIs you're measuring against, and the reports that come out at the end.
+
+## Creating a project
+
+Go to **Projects → Create Project** and fill in three sections.
+
+### Project fundamentals
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| **Project Name** | Yes | Your project's primary display name across the platform |
+| **Project ID** | Yes | Auto-assigned (e.g. `PRJ-001`), or toggle **Manual ID** to enter a custom one. Appears in reports and exports. |
+| **Start Date** | Yes | An End Date can't be set without this |
+| **End Date** | No | Must be after Start Date. Once passed without completion, the project is flagged overdue on the dashboard. |
+| **Status** | No | Active, Pending, Completed, or Cancelled. Completed and Cancelled projects are locked for editing. |
+| **Thematic Area** | No | For example Health, Education, WASH, Livelihood — used for filtering and reporting |
+| **Description** | No | Up to 500 characters, with a live character counter |
+
+### Location and scope
+
+Set **Country**, then **State**, then one or more **Cities**. Each unlocks the next as you go, so the state list depends on the country you choose and the city list depends on the state. Location is optional but powers the Map View in dashboards and reports.
+
+### Stakeholder assignments
+
+Assign the **Managers** who will oversee the project and the **Donors** funding it. Both are multi-select, and both let you quick-create a new record inline without leaving the page. Managers assigned here get project-level access; if you also want them on specific forms, you'll assign that later during form setup.
+
+<Tip>
+  Consistent naming pays off at scale. Prefix related items with the project ID — for example, `PRJ-001 — Beneficiary Registration` and `PRJ-001 — Monthly Follow-up` — so the global submissions, reports, and documents views stay easy to navigate once you have ten or more projects running.
+</Tip>
+
+## Inside a project
+
+Once a project is created, its detail page has a sticky top navigation with everything you need to run it.
+
+| Tab | What you'll find |
+| --- | --- |
+| **Dashboard** | Real-time analytics: submission charts, KPI progress rings, activity timelines, and response rates. Exportable as PDF. |
+| **Overview** | Full metadata — name, code, status, thematic area, dates, overdue flag, assigned location |
+| **Forms** | Every form in this project, with submission counts, publish status, and bulk actions (publish, unpublish, delete) |
+| **KPI & Activities** | KPI list with progress bars, and the activities under each KPI expanded inline |
+| **Donors & Managers** | Stakeholder cards, each with an unassign action |
+| **Documents** | This project's file space — folders, uploads, previews, trash bin |
+| **Reports** | AI-generated reports. Only visible once the project has at least one published form with actual submissions. |
+
+<Info>
+  Completed or Cancelled projects are locked for editing. If you need to change one after the fact, an admin can bypass the lock temporarily by appending `?bypass=true` to the project URL.
+</Info>
+
+## Choosing your data path
+
+With the project in place, you have a choice: how do you want to collect data inside it?
+
+- **[Registry Types](/concepts/registry-types) — track entities over time.** Use this when you're following individual people, facilities, schools, or assets across multiple visits, and you want each to have a profile page with lifecycle status. This is Path A.
+- **[Forms](/concepts/forms) — one-off collection.** Use this for surveys, monitoring checklists, or any data collection that doesn't need to update a specific entity over time. This is Path B.
+
+You aren't locked into one path. A single project can run standalone forms alongside registry-linked forms — for example, one form for beneficiary registration (registry-linked) and another for monthly monitoring (standalone).
+
+## KPIs, activities, and reports
+
+Once data starts flowing, three project-level features turn it into insight.
+
+**KPIs** are the measurable targets that define what success looks like — for example, "500 households reached" or "80% of children vaccinated." Each KPI has a type (Numeric, Percentage, or Binary), a target value, and a unit. KPIs power the dashboard progress bars and feed the AI reports.
+
+**Activities** are the specific, time-bound tasks that move a KPI forward. Every activity is linked to a KPI (and inherits that KPI's project), and their completion updates the KPI's achieved value automatically.
+
+**AI Reports** are generated from the project's approved submissions — currently four types (Project, Ops, Donor, and Portfolio). Every report requires a named manager to approve it before download; nothing leaves the platform unreviewed.
+
+## What happens on plan downgrade
+
+If you downgrade to a plan with a lower project cap, your existing projects and their data are never removed — everything remains fully readable. Creating **new** projects is paused until you either upgrade again or complete or cancel enough existing projects to fit under the new cap.
+
+<CardGroup cols={2}>
+  <Card title="Registry Types" icon="database" href="/concepts/registry-types">
+    Track beneficiaries, facilities, schools, or assets over time — with per-record profiles and lifecycle statuses.
+  </Card>
+
+  <Card title="Forms" icon="clipboard-list" href="/concepts/forms">
+    Design the drag-and-drop form your field team fills in — standalone or linked to a registry.
+  </Card>
+
+  <Card title="Roles & Seats" icon="users-gear" href="/concepts/roles-and-seats">
+    How Managers and Field Officers share your plan's seat cap.
+  </Card>
+
+  <Card title="AI Reports" icon="sparkles" href="/concepts/ai-reports">
+    The four report types and the mandatory human-approval workflow.
+  </Card>
+</CardGroup>

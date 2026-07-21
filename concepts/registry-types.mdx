@@ -1,0 +1,124 @@
+---
+title: "Registry Types in Terriqon: Track Entities Over Time"
+sidebarTitle: "Registry Types"
+description: "A Registry Type defines a custom schema for tracking beneficiaries, facilities, schools, or assets over time — each with a profile, attributes, and lifecycle status."
+---
+
+A **Registry Type** is a custom database schema for a category of real-world entity your organization tracks — people, facilities, schools, assets. It lets you build a profile per record and follow it across multiple visits, forms, and status changes, rather than treating every submission as a one-off. If your work involves the same subjects over time, this is the object that makes long-term tracking possible.
+
+Think of a Registry Type as defining the columns of a spreadsheet before filling in the rows. Once published, every submission from a linked form can create or update a specific record instead of just landing as an isolated response.
+
+## When to use a Registry Type
+
+Use a registry when you can answer "yes" to any of these:
+
+- **Are you tracking individual people, facilities, or assets over time?** (For example, following beneficiaries across enrollment, training, and graduation.)
+- **Do you need a profile page per record?** (One page per beneficiary, per school, per site.)
+- **Will multiple forms update the same entity across visits?** (Registration, then monthly follow-up, then exit interview.)
+- **Do records need lifecycle statuses?** (Active, Graduated, Dropped Out.)
+
+If all your answers are "no" — you're running a one-off survey, a monitoring checklist, or general observation — skip the registry and use a [standalone Form](/concepts/forms) instead. This is Terriqon's Path A vs. Path B choice, and you can run both inside the same project simultaneously.
+
+## Real-world examples
+
+| Entity | Typical attributes | Typical statuses |
+| --- | --- | --- |
+| **Beneficiary** | Name, age, gender, village, household income, enrollment date | Pending Verification → Active → Graduated → Dropped Out |
+| **Health Facility** | Facility name, type (clinic or hospital), district, capacity, last inspection date | Active → Under Review → Closed |
+| **School** | School name, level, enrollment count, headmaster | Active → Inactive |
+| **Asset** | Asset ID, type, location, assigned to, condition, last maintenance date | Operational → In Maintenance → Retired |
+
+These are examples — you define your own attributes and statuses to fit what you actually track.
+
+## Creating a Registry Type
+
+Go to **Records → Create Registry Type**. Setup runs in four steps.
+
+### Step 1: Name it
+
+Give the registry a **Name** (for example, "Beneficiary", "School", "Asset") and an optional **Description** explaining the category. Both surface later when you're linking forms to this registry.
+
+### Step 2: Build the attribute schema
+
+The builder is drag-and-drop — the same interface as the Form Builder. Available attribute types are:
+
+| Type | Use for |
+| --- | --- |
+| **Text** | Names, IDs, addresses, free-form notes |
+| **Number** | Counts, ages, quantities, monetary amounts |
+| **Select** | Single choice from a predefined dropdown list |
+| **Date** | Registration date, birth date, inspection date |
+| **Time** | Opening or closing hours |
+| **Date & Time** | Full event timestamps |
+
+Each attribute has properties you configure in the right-hand panel:
+
+- **Attribute Key** — a machine-readable slug (e.g. `full_name`, `date_of_birth`) used by the API
+- **Display Label** — what users see (e.g. "Full Name")
+- **Description** — help text shown below the field
+- **Options** — for Select attributes, the dropdown choices
+- **Primary Identifier** — toggle on for the one attribute that becomes the record's display title. Only one per registry.
+- **Read-only after creation** — field can't be edited once the record is saved. Useful for registration IDs and enrollment dates.
+- **Required** — must be filled when creating or updating a record
+
+<Tip>
+  Pick your Primary Identifier carefully — it becomes the record's display name everywhere in the platform (record lists, submissions, timelines, reports). For a Beneficiary it's usually Full Name; for a School, the School Name; for an Asset, the Asset ID.
+</Tip>
+
+### Step 3: Define custom statuses
+
+Every Registry Type has a **Status Manager** where you define the lifecycle states a record can move through. For a Beneficiary that might be:
+
+- `pending_verification` → "Pending Verification"
+- `active` → "Active"
+- `graduated` → "Graduated"
+- `dropped_out` → "Dropped Out"
+
+These become the selectable statuses when managing individual records, and they let you filter your record list by lifecycle stage.
+
+### Step 4: Save and publish
+
+You have two options:
+
+- **Save Draft** — stores the schema without making it live. Records can't be created yet.
+- **Publish Registry Type** — activates the registry. Records can now be created, and forms can be linked to it.
+
+## Working with records
+
+Once published, the Registry Type gets its own record list page with multiple views:
+
+- **Table View** — sortable, searchable, filterable list with all attributes as columns
+- **Map View** — GPS-based record locations plotted on a map
+- **Timeline** — chronological activity feed per record (status changes, submissions, documents)
+- **Media Gallery** — all photos and files attached to records
+- **Submissions** — every form submission linked to each individual record
+
+Records are typically created and updated in one of two ways: manually from the Records page, or automatically when a linked form submission matches (or partially matches) an existing record.
+
+## Linking forms to a registry
+
+A registry is only useful once forms feed it. When you build a **Form** whose fields mirror the registry's attributes, you can link the two — and every approved submission of that form will create a new record or update an existing one based on the identifier match.
+
+See [Forms](/concepts/forms) for the field builder, sensitivity tagging, and the submission review flow that decides which submissions reach your registry.
+
+## Conflict resolution
+
+When a new submission partially matches an existing record — same person, but different field values — Terriqon flags a **Conflict** rather than silently overwriting.
+
+The **Conflicts** tab (under Records) lets you review each conflict side by side, field by field:
+
+1. View the existing record's values next to the incoming submission's values.
+2. Choose which value to keep for each field.
+3. Resolve and merge into a single clean record.
+
+The Conflicts action is automatically disabled when your registry has no conflicts, and enables the moment one appears. This keeps your record data clean without demanding constant vigilance — conflicts surface only when they exist.
+
+<CardGroup cols={2}>
+  <Card title="Forms" icon="clipboard-list" href="/concepts/forms">
+    Build the drag-and-drop form that feeds your registry — including sensitivity tagging and submission review.
+  </Card>
+
+  <Card title="Projects" icon="folder-tree" href="/concepts/projects">
+    The container that holds your registry, forms, KPIs, and reports.
+  </Card>
+</CardGroup>

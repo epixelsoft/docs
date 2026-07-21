@@ -1,0 +1,57 @@
+---
+title: "How Terriqon Works: From Field Data to Approved Report"
+sidebarTitle: "How It Works"
+description: "Understand the end-to-end Terriqon workflow: form design, offline data collection, AI report generation, PII protection, and the human approval process."
+---
+
+Terriqon is built around a single promise: your field team collects raw data, and a verified, funder-ready report comes out the other end — with a named human approving every step. This page walks you through the complete end-to-end workflow, from the moment you design a form to the moment a report is available for download.
+
+## The three-stage workflow
+
+Every Terriqon project moves through three stages. Each stage is designed so that the next one can only begin when the previous one is complete and verified.
+
+<Steps>
+  <Step title="Build and deploy">
+    An Organization Admin or Manager uses the drag-and-drop form builder to design a data collection form. Fields are configured with types, validation rules, and — where relevant — sensitivity tags that mark PII for exclusion from the AI pipeline later on. If you're tracking entities over time (beneficiaries, facilities, schools, or assets), you can link the form to a registry so each submission updates the right record. Once the form is published to a project, it becomes available on every assigned Field Officer's PWA instantly, ready to use online or offline.
+  </Step>
+  <Step title="Collect in the field">
+    Field Officers open the Terriqon PWA on their phone or tablet and fill in the form at the point of work — whether that's a remote farm plot, a rural clinic, a construction site, or an emergency distribution point. If there's no internet connection, submissions are encrypted and stored securely on the device. The moment the device detects connectivity, all pending submissions sync automatically to the Terriqon platform. No manual intervention is required.
+  </Step>
+  <Step title="Generate and approve">
+    Once enough submissions have been reviewed and approved, an Admin or Manager triggers AI report generation. Terriqon's pipeline aggregates the approved data, excludes your sensitive-tagged fields, and drafts a structured report. The manager reviews the draft, makes any edits needed, and approves it. Only after approval is the report available for download or sharing.
+  </Step>
+</Steps>
+
+## The AI reporting pipeline
+
+Between raw field submission and finished report, your data passes through four sequential stages — each designed to protect your beneficiaries and ensure report accuracy.
+
+**1. Validation and human review** As field officers fill in a form, Terriqon enforces the validation rules you set — required fields, value ranges, and format checks — so incomplete or malformed data can't be submitted in the first place. Once submitted, each entry lands in a review queue where an Admin or Manager approves or rejects it, and a rejection can carry a written reason. Only approved submissions feed a report. This keeps low-quality data from silently distorting your results.
+
+**2. PII exclusion** Before any data reaches the AI model, every field you tagged as sensitive during form design — names, phone numbers, national IDs, GPS coordinates — is excluded from the dataset the AI receives. The model works only on sanitized, aggregate-level metrics, never on individual beneficiary records. Because exclusion is driven by your field tags, tagging every PII field when you build the form is what keeps personal data out of the pipeline — Terriqon's builder prompts you to tag names, IDs, phone numbers, and location fields for exactly this reason.
+
+**3. AI report generation** With a clean, approved dataset, Terriqon's AI generates a structured report in your selected type — Project, Ops, Donor, or Portfolio. Each report is organized into the sections funders and stakeholders expect: an Executive Summary, Key Findings, Recommendations, KPI status, and supporting statistical tables — all generated from your actual submissions. Finished reports can be downloaded as PDF or DOCX.
+
+**4. Human review and approval** The AI-generated draft is presented to a named manager for review in the Terriqon report editor. The manager can read every section, make manual edits, and either approve the report or reject it. Approval makes the report available for download. Rejection requires the manager to provide a written reason, which is logged permanently in the audit trail.
+
+## Data safety by design
+
+<Info>
+  No AI-generated report can be downloaded or shared until a named manager has explicitly approved it. If a manager rejects a draft, they must provide a written reason — this reason is recorded permanently alongside the rejection in the report's full audit trail. Every approval, rejection, edit, and download is logged and cannot be altered or deleted. This audit trail is available to Organization Admins at any time.
+</Info>
+
+PII exclusion runs on every report generation, regardless of plan or report type — there's no way to generate a report that includes the raw values of fields you've tagged as sensitive. The one part in your hands is tagging: as long as PII fields are tagged as sensitive when you build the form, their values never reach the AI layer, which keeps your reports aligned with your data-protection obligations.
+
+## Offline-first architecture
+
+The Terriqon mobile experience is a Progressive Web App (PWA) — installed directly from a browser, with no app store required. The PWA is built to function fully in zero-signal environments. When a Field Officer is offline, submissions are encrypted and stored locally on the device, then sync to the platform automatically the moment connectivity returns. Field Officers never need to manually trigger a sync or worry about losing work.
+
+<CardGroup cols={2}>
+  <Card title="AI Reports" icon="sparkles" href="/concepts/ai-reports">
+    Dive deeper into the four report types — Project, Ops, Donor, and Portfolio — and learn when to use each one.
+  </Card>
+
+  <Card title="Offline Mode" icon="wifi-slash" href="/concepts/offline-mode">
+    Learn how the Terriqon PWA stores, encrypts, and syncs submissions in zero-connectivity environments.
+  </Card>
+</CardGroup>

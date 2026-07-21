@@ -1,0 +1,65 @@
+---
+title: "Security and Data Protection in the Terriqon Platform"
+sidebarTitle: "Data Protection"
+description: "How Terriqon secures field data: encryption in transit, role-based access control, private cloud storage, audit logging, and sub-processor details."
+---
+
+Terriqon is built for field programmes that handle sensitive operational data — crop yields, beneficiary records, infrastructure assessments, and more. Keeping that data secure is not an afterthought; it is a foundational part of how the platform works. Every submission travels over an encrypted connection, every file sits in private storage, and every action taken on a report is permanently recorded. This page explains the technical and organisational measures Terriqon applies to protect your data, how long your data is kept, and who else may process it on our behalf.
+
+## Security Measures
+
+Terriqon applies the following controls across all tiers of the platform:
+
+- **Encryption in transit (TLS):** All data transmitted between field devices, the Terriqon web application, and Terriqon servers is encrypted using TLS. No submission, file, or report travels over an unencrypted connection.
+- **Role-based access control (RBAC):** Three roles — Admin, Manager, and Field Officer — each carry strictly scoped permissions. Field Officers can submit data but cannot view reports or manage users. Managers can approve and share AI Reports within their assigned scope. Admins control organisation-wide settings, user management, and billing. No role can access resources outside its defined boundary.
+- **Private cloud storage with time-limited signed URLs:** All files uploaded by your organisation — attachments, audio, images, signatures — are stored in private (non-publicly accessible) cloud buckets. Files are served exclusively through short-lived signed URLs that expire automatically, preventing unauthorised sharing or hotlinking.
+- **Audit logging:** Every access event, administrative action, approval, rejection, and report export is recorded in a permanent, append-only audit log. Audit records cannot be edited or deleted and are available to Admins for compliance review.
+- **Session management with secure tokens:** User sessions are managed with cryptographically secure tokens. Sessions expire after a period of inactivity and are invalidated immediately on sign-out.
+
+## Data Retention
+
+The table below summarises how long Terriqon retains different categories of data.
+
+| Scenario | Retention |
+| --- | --- |
+| Active account | All data retained for as long as your account remains active |
+| After full cancellation | 30-day window for you to export your data; production data deleted within 90 days of cancellation |
+| Billing and financial records | Retained for up to 8 years as required by applicable financial and tax law |
+| Backup copies | Overwritten on a rolling ~90-day cycle |
+
+<Note>
+  After cancelling your account you have **30 days** to export your data. After that window closes, production deletion begins and cannot be reversed. Please export any records you need before the window expires.
+</Note>
+
+## Breach Notification
+
+In the event of a personal data breach that poses a risk to individuals, Terriqon will notify affected customers within **48 hours** of confirming the breach. Where required by applicable law (including the EU General Data Protection Regulation and India's Digital Personal Data Protection Act), Terriqon will also notify the relevant supervisory authority. Notifications will describe the nature of the breach, the categories of data affected, the likely consequences, and the measures taken or proposed to address it.
+
+## Sub-Processors
+
+Terriqon uses a small, carefully selected set of trusted third-party sub-processors to deliver the platform. Each sub-processor is bound by data processing agreements that require them to protect your data to at least the same standard as Terriqon. No sub-processor receives more data than is necessary for its specific function.
+
+| Sub-processor | Purpose | Location |
+| --- | --- | --- |
+| **Stripe** | Payment processing and subscription billing | United States / Ireland |
+| **Railway** | Application hosting and backend infrastructure | United States |
+| **Cloudflare** | Content delivery network, DDoS protection, and DNS | United States (global network) |
+| **PlanetScale** | Managed relational database hosting | United States |
+| **Amazon Web Services** | Application hosting and object storage | United States |
+| **ZeptoMail** | Transactional email delivery (account notifications, password resets) | United States |
+| **Loops** | Product and marketing email communications | United States |
+| **Crisp** | Customer support live chat | France / European Union |
+| **PostHog** | Product usage analytics | United States / European Union |
+| **AI Report Generation Sub-processor** | Generates AI Report narratives from aggregated, anonymised metrics only (see [PII Stripping](/security/pii-stripping)). Provider selection and applicable regional safeguards are being finalized; the specific provider and location will be published here once confirmed. | To be confirmed |
+
+## Your Rights
+
+You and your organisation have rights over the personal data Terriqon holds, including rights of access, correction, erasure, data portability, and — depending on your jurisdiction — restriction and objection. For the full details of your rights under the India Digital Personal Data Protection Act and the EU General Data Protection Regulation, see the [Privacy Policy](/security/privacy-policy).
+
+To exercise any of these rights, contact us at [**support@terriqon.com**](mailto:support@terriqon.com).
+
+---
+
+<Info>
+  Your Customer Data is always yours. Terriqon only uses it to provide the service and to generate AI Reports on your request — never for advertising or sale to third parties.
+</Info>

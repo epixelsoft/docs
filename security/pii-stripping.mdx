@@ -1,0 +1,59 @@
+---
+title: "How Terriqon Protects Beneficiary Privacy in AI Reports"
+sidebarTitle: "PII Stripping"
+description: "Terriqon strips PII before AI processing. Learn what the pipeline removes, how redaction is logged, and your responsibilities as Data Controller."
+---
+
+Field programmes routinely collect data that touches on the lives of real people — names, locations, case histories, biometric identifiers. When that data is used to generate AI-powered programme reports, there is a real risk that personal details could be absorbed into model inputs, outputs, or logs. Terriqon addresses this directly: before any submission data is passed to AI processing, fields you tagged as sensitive during form design are excluded from what the AI receives. The AI only ever sees aggregated, anonymised metrics — never the raw values of tagged fields. This page explains what the pipeline excludes, how the redaction is recorded, and what you need to do on your end to make the safeguard work correctly.
+
+## What the Pipeline Excludes
+
+Terriqon's PII protection is **tag-driven**. When you build a form, you tag each field's sensitivity classification in the Form Builder: `personally identifiable`, `restricted`, or neither. That tag is what determines whether a field's values reach the AI.
+
+- **Fields you tag as `personally identifiable` or `restricted`** are excluded from the AI processing payload entirely, regardless of field type or content. The AI receives only aggregated metrics computed across the submission set, never the raw values of a tagged field.
+- **Fields you leave untagged** flow through to the AI as ordinary data. The pipeline does not scan or auto-detect PII in untagged fields — if you place personal data in an untagged field, it will be included.
+
+This is why tagging discipline at form-design time is the mechanism that keeps personal data out of AI reports. See [Building Forms → Tagging Sensitive Fields](/guides/building-forms#tagging-sensitive-fields) for the form-builder walkthrough.
+
+## What the AI Sees
+
+After the pipeline runs, the AI receives only aggregated, anonymised metrics derived from the fields you left untagged. For example:
+
+> _"127 submissions recorded crop yield above threshold in Region X during the reporting period."_
+
+The AI does not receive — and has no access to — the raw values of any field you tagged as sensitive. AI-generated reports reflect programme-level patterns and outcomes drawn from the aggregated numbers, not individual-level records.
+
+<Info>
+  Even after tag-driven exclusion runs, every AI-generated report must be reviewed and approved by a named Admin or Manager before it can be downloaded or shared. The AI output is never automatically published. See [Approving Reports](/guides/reviewing-and-approving-reports) for the full approval flow.
+</Info>
+
+## The Redaction Manifest
+
+Every time the pipeline runs against a batch of submissions, it records a **redaction manifest** — a structured log entry documenting which fields were excluded based on their sensitivity tags, and the timestamp of the operation. The manifest is retained in your organization's audit log. You can use it to demonstrate to auditors, funders, or beneficiary representatives that tagged fields were not passed to AI processing.
+
+## Your Responsibilities
+
+Because exclusion is driven by your tags, correct tagging at form-design time is what makes the safeguard work. As the organization deploying Terriqon, you are the **Data Controller** for your field data; Terriqon acts as the **Data Processor** on your instructions. This means:
+
+- **Tag sensitive fields before deployment.** Any field that will collect personally identifiable information — names, phone numbers, national IDs, GPS coordinates, dates of birth — must be tagged with `personally identifiable` or `restricted` in the Form Builder before the form is published to the field. Untagged PII is not automatically detected.
+- **Don't place personal data in untagged fields.** For example, don't instruct field officers to record beneficiary names in a free-text "Notes" field that isn't tagged as sensitive. Anything left in an untagged field flows through to the AI as ordinary data.
+- **Review your form configuration before each deployment.** If you modify a form, re-check that every sensitive field retains its sensitivity tag.
+- **Retroactive re-tagging has no effect on already-submitted data.** If a field was untagged at the time of submission, that submission's data was recorded with the field untagged. Re-tagging the field going forward only affects future submissions.
+
+<Warning>
+  Always tag personally identifiable fields **before** deploying a form to the field. There's no automatic detection to catch you if you forget — untagged fields flow through to the AI as ordinary data.
+</Warning>
+
+<Tip>
+  Before publishing, use **Form Preview** to check the sensitivity tag on every field. Any untagged field that might contain personal data is a configuration risk — fix it before publishing.
+</Tip>
+
+## Limitations
+
+Terriqon is transparent about what tag-driven exclusion can and cannot guarantee:
+
+- **The safeguard depends on correct tagging.** It excludes every field you tagged as sensitive; it doesn't scan untagged fields to catch missed tags. If a PII field is untagged, its values reach the AI.
+- **AI Reports require human approval before use.** No AI-generated report can be downloaded or shared without a named Admin or Manager explicitly approving it. Rejection requires a written reason, and the full approval and rejection trail is recorded permanently in the audit log.
+- **Aggregate outputs can sometimes still permit re-identification.** For very small groups (a village with three households, a facility with two staff), aggregate statistics can, in edge cases, still enable someone to identify an individual. Consider your reporting design against your specific population sizes.
+
+Your organization bears ultimate responsibility for ensuring that field data collection practices comply with applicable privacy law. Terriqon's tag-driven exclusion reduces your risk; it does not transfer your legal obligations.

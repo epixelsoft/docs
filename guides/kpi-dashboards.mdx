@@ -1,0 +1,106 @@
+---
+title: "Monitor Field Activity with Terriqon KPI Dashboards"
+sidebarTitle: "KPI Dashboards"
+description: "Terriqon's KPI dashboards show KPI progress and status, submission volume, completion rate, activity timelines, and GPS activity — updating in real time as approved submissions arrive."
+---
+
+Terriqon's KPI dashboards give Managers and Organization Admins a live window into field activity. As submissions arrive — from online devices and from offline ones the moment they sync — the dashboard updates automatically, showing who's collecting data, where they are, and how close each KPI is to its target. You don't need to wait for a report to know what's happening in the field. This guide covers how to access dashboards, what each panel shows, how KPI progress is displayed, and how to use filtering and the portfolio view.
+
+## Accessing Dashboards
+
+To open a project-level dashboard, navigate to **Projects** in the left sidebar, click your project, and open the **Dashboard** tab at the top of the project page. The dashboard loads immediately with data from every approved submission in that project.
+
+Organization Admins and Managers with multiple projects can also access a **Portfolio Dashboard** that aggregates KPIs across every project in your organization. See [Portfolio View](#portfolio-view) below.
+
+## What the Dashboard Shows
+
+Each project dashboard gives you a full picture of field activity in a single view:
+
+<CardGroup cols={2}>
+  <Card title="KPI Progress" icon="bullseye">
+    Progress rings and bars for every KPI on the project — target vs. achieved. Progress updates automatically as approved submissions and completed activities feed the KPI.
+  </Card>
+
+  <Card title="Submission Charts" icon="chart-line">
+    Total submissions received today, this week, and across the life of the project. Updates in real time as Field Officer devices sync.
+  </Card>
+
+  <Card title="Completion Rate" icon="circle-check">
+    The percentage of started forms that were fully submitted. A low completion rate often signals a form that's too long, connectivity trouble, or a gap in field team training.
+  </Card>
+
+  <Card title="Activity Timeline" icon="list-timeline">
+    A chronological feed of the tasks running under each KPI, with status updates as activities complete.
+  </Card>
+
+  <Card title="Active Field Officers" icon="users">
+    How many Field Officers are active in the last 24 hours — anyone whose device has synced in that window counts as recently active.
+  </Card>
+
+  <Card title="Pending Sync" icon="clock-rotate-left">
+    The number of submissions saved on Field Officer devices that haven't uploaded yet. A persistently high number usually means a team is working in an area with limited connectivity.
+  </Card>
+
+  <Card title="Response Rates" icon="reply">
+    Response rate against the population you're trying to reach for this project, where a target has been set.
+  </Card>
+
+  <Card title="GPS Activity Map" icon="map-location-dot">
+    Every submission with a GPS field is plotted as a pin on a live map. Click any pin for the Field Officer's name, submission timestamp, and status.
+  </Card>
+</CardGroup>
+
+## KPI Progress and Status
+
+KPIs are the measurable targets you set on the project — for example, "500 households surveyed," "80% of children vaccinated," or "Policy signed: Yes/No." Every KPI you create is one of three types (Numeric, Percentage, or Binary), each with its own target value. See [Projects → KPIs, activities, and reports](/concepts/projects#kpis-activities-and-reports) for the underlying model.
+
+The dashboard renders each KPI's progress as a ring or bar showing **achieved vs. target**, with a color-coded status:
+
+- **Green — On track.** The KPI is progressing at or above the expected pace for the project timeline.
+- **Amber — At risk.** Progress is behind schedule but recoverable.
+- **Red — Overdue or off track.** The KPI's planned end date has passed, or the trajectory won't reach the target without intervention.
+
+Because color status is calculated live, catching an amber KPI early gives you time to redirect field activity before it turns red. Numeric and Percentage KPIs update as approved submissions arrive; Binary KPIs flip to complete when their underlying activity is marked complete.
+
+## The GPS Activity Map
+
+Every submission that includes a GPS field is automatically plotted as a location pin on the live activity map. The map updates as new submissions sync, giving you a real-time picture of where your team is working.
+
+Click any pin to open a summary card showing:
+
+- **Field Officer name** — who made the submission
+- **Submission timestamp** — when the form was submitted (in the Field Officer's local time)
+- **Submission status** — Synced, Pending Sync, or Pending Review
+
+Use the map to verify that data is being collected in the right geographic areas, spot gaps in field coverage, and catch unusual patterns — such as submissions clustered in one place when the team should be spread across a district.
+
+## Filtering and Date Ranges
+
+Use the filter bar above the dashboard panels to narrow the data you're looking at:
+
+- **Field Officer** — filter to see submissions from one specific Field Officer, useful for check-ins or troubleshooting
+- **Date Range** — set a custom start and end date, or pick a preset (Today, This Week, This Month, Custom Range)
+- **Submission Status** — filter by Synced, Pending Sync, Pending Review, Approved, or Rejected
+
+Filters apply across every panel simultaneously — the submission count, completion rate, KPI progress, and GPS map all update to reflect the filtered dataset. To reset, click **Clear Filters**.
+
+## Exporting the Dashboard
+
+The whole project dashboard can be exported as a **PDF** — useful for quick donor updates or a snapshot at the end of a reporting cycle. Click **Export as PDF** in the top-right of the Dashboard tab. The export captures the current filter state, so if you've narrowed to a specific date range or Field Officer, the exported PDF reflects that view.
+
+For a fuller structured report rather than a dashboard snapshot, use the AI Report flow — see [Approving Reports](/guides/reviewing-and-approving-reports).
+
+## Portfolio View
+
+For Organization Admins and Managers overseeing multiple projects, the **Portfolio Dashboard** aggregates KPIs from every project in your organization into a single view. To access it, click **Portfolio** in the left sidebar.
+
+In the Portfolio view you can see:
+
+- Total submissions across every project
+- Project-by-project completion rate comparison
+- A combined GPS map showing field activity across every location
+- A summary of every project's KPI status, so you can spot which projects are green, amber, or red at a glance
+
+<Tip>
+  Watch KPI color status daily during active project phases. Catching an amber KPI early — before its planned end date — is what gives you time to redirect resources, add follow-up activities, or adjust the plan while there's still runway. By the time a KPI turns red, options narrow.
+</Tip>

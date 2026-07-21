@@ -1,0 +1,131 @@
+---
+title: "Manage Your Terriqon Subscription, Billing, and Seats"
+sidebarTitle: "Subscription"
+description: "Upgrade or downgrade your Terriqon plan, manage seats, switch billing cycles, and view invoices. Only Organization Admins can access billing."
+---
+
+All subscription and billing management in Terriqon is handled by your Organization Admin through the built-in billing portal. If you hold any other role — Manager or Field Officer — you will not see billing settings in your dashboard. As an Organization Admin, you can upgrade or downgrade your plan, switch between monthly and annual billing, monitor seat usage, apply account credit, and download invoices, all without leaving the Terriqon dashboard.
+
+<Note>
+  Only Organization Admins can view and manage billing. Managers and Field Officers do not have access to billing settings.
+</Note>
+
+## Accessing the Billing Portal
+
+You can reach the billing portal in two ways:
+
+- **From the dashboard:** Navigate to **Settings → Billing** in the left-hand sidebar.
+- **From an invoice email:** Click the **Manage Billing** link included in any invoice or payment receipt email sent to your account admin address.
+
+The billing portal is powered by Stripe. Changes you make there — plan upgrades, payment method updates, invoice downloads — take effect immediately in your Terriqon account.
+
+## Upgrading Your Plan
+
+Upgrades take effect immediately and are prorated for the remainder of your current billing period.
+
+<Steps>
+  <Step title="Open the billing portal">
+    Go to **Settings → Billing** in the Terriqon dashboard.
+  </Step>
+  <Step title="Click Change Plan">
+    Under your current plan summary, click **Change Plan**.
+  </Step>
+  <Step title="Select your new plan">
+    Choose the Field, Ops, or Command plan that fits your team's needs. Review the seat limit, AI report allowance, and pricing before continuing.
+  </Step>
+  <Step title="Confirm the upgrade">
+    Review the prorated charge for the remaining days in your billing period and click **Confirm Upgrade**. Any account credit balance is applied automatically before your card is charged.
+  </Step>
+  <Step title="Upgrade takes effect immediately">
+    Your new seat limit and AI report allowance are available right away. A receipt is emailed to your account admin address.
+  </Step>
+</Steps>
+
+<Tip>
+  If you have account credit, it is always applied first before any card charge. Check your credit balance under **Billing → Credit Balance** before upgrading.
+</Tip>
+
+## Downgrading Your Plan
+
+How a downgrade takes effect depends on whether you are on a monthly or annual billing cycle.
+
+**Monthly plans** A downgrade on a monthly plan is scheduled for the end of your current billing month. You keep your current plan's seat limit and AI report allowance until the billing period closes, and your new, lower plan activates on your next renewal date.
+
+**Annual plans** A downgrade on an annual plan takes effect immediately. The unused prepaid value for the remainder of your annual term is converted to account credit, which is automatically applied to future invoices. If you are within 30 days of your most recent annual purchase or renewal date, you may be eligible for a prorated cash refund instead — see the [Cancellation and Refunds](/account/cancellation-and-refunds) page for details.
+
+## Switching Billing Cycle
+
+You can switch from monthly to annual billing at any time to save 20% on your plan price.
+
+<Steps>
+  <Step title="Go to Settings → Billing">
+    Open the billing portal from your Terriqon dashboard.
+  </Step>
+  <Step title="Click Switch to Annual">
+    Locate the billing cycle section and select **Switch to Annual Billing**.
+  </Step>
+  <Step title="Review the prorated charge">
+    Terriqon calculates the remaining days in your current monthly period and credits that value. You are charged the annual rate minus any prorated credit and existing account credit.
+  </Step>
+  <Step title="Confirm">
+    Click **Confirm**. Your annual billing cycle starts immediately and your 20% discount is locked in for the full year.
+  </Step>
+</Steps>
+
+<Info>
+  Switching from annual back to monthly is treated as a downgrade. The unused annual value becomes account credit applied to your monthly invoices going forward.
+</Info>
+
+## Seat Management
+
+Your plan's seat limit is a **combined pool** shared by active Managers and Field Officers. Your Organization Admin doesn't consume a seat. See [Roles & Seats](/concepts/roles-and-seats) for the full model.
+
+To monitor and manage your team's seat usage:
+
+- Navigate to **Settings → Team** to see a breakdown of your active, archived, and pending Managers and Field Officers, plus your current active count against your plan's cap.
+- **Archived and pending members do not count** toward your seat limit. If you're approaching the cap, archive team members no longer active on the platform to free seats while preserving their profile and history.
+- If you need to keep everyone active, either **upgrade your plan** or **purchase add-on seats** (see [Add-Ons](#add-ons) below).
+
+## Add-Ons
+
+If your team needs more capacity mid-cycle without jumping to the next plan tier, you can purchase add-ons on top of your existing plan:
+
+- **Additional seats** — extra active seat capacity beyond your plan's cap. Useful when you briefly need more team members than your tier includes.
+- **AI report packs** — extra AI reports beyond your monthly allowance. Useful during heavy reporting cycles like quarter-end or grant deadlines.
+
+To purchase either:
+
+<Steps>
+  <Step title="Open Settings → Billing">
+    From the Terriqon dashboard, go to **Settings → Billing** and locate the **Add-ons** section.
+  </Step>
+  <Step title="Choose the add-on and quantity">
+    Select **Additional Seats** or **AI Report Pack** and enter the quantity you need.
+  </Step>
+  <Step title="Confirm">
+    Add-ons appear on your next invoice alongside your regular plan charge. They renew each billing period unless you remove them before the next invoice date.
+  </Step>
+</Steps>
+
+<Info>
+  Add-ons are the deliberate opt-in path to more capacity — Terriqon does not automatically bill overage. If you hit your seat cap without add-ons in place, new active invites are paused until you archive someone, purchase add-on seats, or upgrade.
+</Info>
+
+## Account Credit
+
+Account credit accumulates when you receive a prorated refund from a downgrade, an annual plan adjustment, or a confirmed SLA remedy (Command plan only). Credit works as follows:
+
+- **Automatic deduction.** Your credit balance is applied automatically to your next invoice before any card charge.
+- **Never expires.** Account credit has no expiry date and remains on your account until fully used.
+- **Not redeemable for cash.** Credit can only offset future Terriqon invoices and cannot be transferred or paid out.
+- **Where to check.** Go to **Billing → Credit Balance** in the billing portal to see your current balance and a history of how credit was earned and applied.
+
+## Invoices and Receipts
+
+Terriqon automatically emails a PDF invoice to your account admin address after each successful payment. You can also access all invoices directly in the billing portal:
+
+- Go to **Settings → Billing → Invoices**.
+- Click any invoice to preview it or download a PDF copy.
+- Invoices include a line-item breakdown of your plan charge, any prorations, account credit applied, and taxes where applicable.
+
+If you need invoices sent to a different email address (such as a finance team address), update the **Billing Email** field in the billing portal.

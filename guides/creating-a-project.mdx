@@ -1,0 +1,106 @@
+---
+title: "Create a Project in Terriqon"
+sidebarTitle: "Creating a Project"
+description: "Create a Project — the container that holds your registry or form, team, KPIs, submissions, documents, and AI reports. Step-by-step field-by-field walkthrough."
+---
+
+A **Project** is the top-level container everything else in Terriqon lives inside. Your forms, registries, KPIs, activities, documents, and AI reports all belong to one project each — which is why creating a project is the second thing you do (after inviting your [team](/guides/managing-team-members)) and before anything else. This guide walks you through the create-project form field by field, then covers what you see once the project exists.
+
+For the underlying model — what a project holds, and how Path A vs Path B fits in — see [Projects](/concepts/projects).
+
+## Before You Start
+
+A project is a container for one funding cycle or programme implementation phase, so give it real scope before you start clicking. A few minutes of thinking here saves rework later:
+
+- **What is this project actually doing?** "Food-security programme in rural Sindh, 2,000 households, 12 months" is a project. "General M&E work" isn't specific enough to design the rest around.
+- **Are you tracking entities over time, or running one-off collection?** If you're following individuals, facilities, schools, or assets across multiple visits, you'll build a [Registry Type](/concepts/registry-types) next (Path A). If you're running surveys or monitoring checklists, you go straight to a standalone [Form](/guides/building-forms) (Path B). Either choice works inside one project; you can also do both.
+- **Who's overseeing this?** You'll assign one or more Managers to the project, so know who they are before you start (or invite them from the [Team Members](/guides/managing-team-members) page in a separate tab).
+- **Who's funding it?** You can add Donors during creation or later, but having the answer handy speeds things up.
+
+## Creating a Project
+
+<Steps>
+  <Step title="Open the Create Project form">
+    Go to **Projects** in the left sidebar and click **Create Project**. A three-section form opens.
+  </Step>
+  <Step title="Fill in Project Fundamentals">
+    This is the section that gives your project its identity in the platform. Required fields are marked; everything else can be added later.
+
+    | Field | Required | Notes |
+    | --- | --- | --- |
+    | **Project Name** | Yes | The project's primary display name across every view — submissions, reports, exports, dashboards. |
+    | **Project ID** | Yes | Auto-assigned (e.g. `PRJ-001`). Toggle **Manual ID** if you want to enter a custom identifier that matches your donor's or organization's project-code convention. |
+    | **Start Date** | Yes | You can't set an End Date until this is filled. |
+    | **End Date** | No | Must be after Start Date. Once this date passes without the project being marked Completed, it's flagged **overdue** on the dashboard. |
+    | **Status** | No | Active, Pending, Completed, or Cancelled. Set the current stage; you can change it later. Completed and Cancelled projects are locked for editing (see [Editing Later](#editing-later) below). |
+    | **Thematic Area** | No | Free text — for example, Health, Education, WASH, Livelihood. Used for filtering across your projects and for reporting context. |
+    | **Description** | No | Up to 500 characters. A live character counter appears in the bottom-right of the field. Use it to capture the project's goals in one paragraph. |
+
+    <Tip>
+      Consistent project IDs pay off at scale. Prefix related forms and documents with the project ID — for example, `PRJ-001 — Beneficiary Registration` and `PRJ-001 — Monthly Follow-up` — so the global submissions view, reports list, and document folders stay easy to navigate once you have ten or more projects running.
+    </Tip>
+  </Step>
+  <Step title="Set Location and Scope">
+    Location is optional but worth filling in — it powers the Map View in dashboards, ties submissions to a place, and gives donor reports geographic context.
+
+    - **Country** — pick from the searchable dropdown. Selecting a country unlocks the State list for that country.
+    - **State** — unlocks after Country is chosen; the list is filtered to that country.
+    - **Cities** — unlocks after State. Multi-select — add every city the project operates in.
+
+    If your programme covers multiple countries or states, create one project per operational area rather than trying to fit everything into one. Multi-country reporting rolls up through the Portfolio Report and Portfolio Dashboard.
+  </Step>
+  <Step title="Assign Stakeholders">
+    Two multi-select fields — both optional, both can be added or changed later.
+
+    - **Donor(s)** — the organizations funding the project. If a donor isn't in the dropdown yet, click **Create new** to add them inline without leaving the page. Donors surface on donor reports and in the project's Donors & Managers tab.
+    - **Manager(s)** — the Managers overseeing the project. Same quick-create option: if the Manager you need isn't on the roster yet, add them inline. Managers assigned here get project-level access to the Dashboard, Forms, KPIs, Documents, and Reports tabs.
+
+    Field Officers are **not** assigned at the project level — they're assigned per form, once forms exist. See [Building Forms → Assigning Field Officers](/guides/building-forms#assigning-field-officers).
+  </Step>
+  <Step title="Create">
+    Click **Create Project**. You land on the project's detail page, ready to attach the rest of your setup.
+  </Step>
+</Steps>
+
+## What You See After Creation
+
+Every project has a sticky top navigation with the same seven tabs. Some will be empty until you attach things to them.
+
+| Tab | What lives here |
+| --- | --- |
+| **Dashboard** | Real-time analytics: KPI progress rings, submission charts, activity timelines, response rates, GPS map. Exportable as PDF. Populates as data arrives. |
+| **Overview** | Project metadata — name, ID, status, thematic area, dates, overdue flag, location. |
+| **Forms** | Every form in this project, with submission counts, publish status, and bulk actions. |
+| **KPI & Activities** | KPIs and the activities under them, with progress bars and status colors. |
+| **Donors & Managers** | Stakeholder cards with unassign actions. |
+| **Documents** | Project-scoped file storage — folders, uploads, previews, trash bin. |
+| **Reports** | AI-generated reports. Only appears once the project has at least one published form with submissions. |
+
+## Next Steps
+
+With the project in place, follow the setup path that matches how you're collecting data:
+
+**Path A — tracking entities over time.** If you're following beneficiaries, facilities, schools, or assets:
+
+1. Create a [Registry Type](/concepts/registry-types) that defines the entity's schema (attributes, primary identifier, lifecycle statuses).
+2. [Build a Form](/guides/building-forms) whose fields match the registry, and link the two.
+3. [Set up KPIs and Activities](/concepts/projects#kpis-activities-and-reports) on the project.
+4. [Field Officers start submitting data](/guides/collecting-data).
+
+**Path B — one-off surveys or monitoring.** If your data collection doesn't need to update entity records:
+
+1. [Build a Form](/guides/building-forms) directly — no registry needed.
+2. [Set up KPIs and Activities](/concepts/projects#kpis-activities-and-reports) on the project.
+3. [Field Officers start submitting data](/guides/collecting-data).
+
+You can run Path A and Path B forms in the same project side by side — for example, a registry-linked beneficiary registration form and a standalone monthly monitoring form.
+
+## Editing Later
+
+Most project fields can be updated at any time from the **Overview** tab — rename it, adjust the end date, add another city, change the thematic area.
+
+One behavior is worth knowing about: once a project's **Status** is changed to **Completed** or **Cancelled**, the project is **locked for editing**. Submissions, reports, and dashboards remain fully readable — historical data is never removed — but new edits are blocked to preserve the record. If you need to reopen a locked project temporarily, an Organization Admin can append `?bypass=true` to the project URL to override the lock.
+
+<Info>
+  On plan downgrade, existing projects and their data are never removed — only your ability to create **new** projects above the new plan's cap is paused. Complete or cancel projects you no longer need, or upgrade again, to unlock new-project creation.
+</Info>

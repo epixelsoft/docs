@@ -1,0 +1,114 @@
+---
+title: "Terriqon: Frequently Asked Questions & Answers"
+sidebarTitle: "FAQ"
+description: "Answers to the most common questions about Terriqon: data security, offline mode, AI report accuracy, NGO discounts, form imports, and more."
+---
+
+This page brings together the most common questions from field teams and programme managers using Terriqon. Whether you're just getting started, troubleshooting an issue in the field, or evaluating Terriqon for your organisation, you'll find direct answers below.
+
+---
+
+### Getting Started
+
+<AccordionGroup>
+  <Accordion title="Is my field data secure and private?">
+    Yes. All data is encrypted in transit, and pending submissions are encrypted on your Field Officers' devices when they're offline. For AI reports, protection is **tag-driven**: any form field you tag as `personally identifiable` or `restricted` in the form builder is excluded from the dataset the AI receives, so tagged personal data never reaches the AI layer. Every AI report also requires a named Admin or Manager to approve it before it can be downloaded or shared. See [PII Stripping](/security/pii-stripping) for the full model.
+  </Accordion>
+
+  <Accordion title="Is there a free trial?">
+    Yes. The Field and Ops plans include a 14-day free trial — no credit card required. You won't be automatically charged at the end of the trial; you need to choose a paid plan to continue. Command trials are available on request — contact [support@terriqon.com](mailto:support@terriqon.com) or your sales representative to arrange one.
+  </Accordion>
+
+  <Accordion title="How long does setup take?">
+    Most teams are set up and collecting data within 2 hours. You can build a form, invite your field officers, create a project, and have submissions coming in the same day. Our onboarding guide walks you through each step.
+  </Accordion>
+
+  <Accordion title="Can I import my existing forms?">
+    Yes, in many cases. Contact [support@terriqon.com](mailto:support@terriqon.com) with details about your existing form format (Excel, XLSForm, Google Forms, etc.) and the team will advise on import options.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Data Collection
+
+<AccordionGroup>
+  <Accordion title="Can my team work offline?">
+    Yes. The Terriqon PWA works in zero-signal zones. Field officers fill in forms normally — submissions are saved locally on the device. When connectivity returns (WiFi or mobile data), the app syncs automatically. No manual action is required.
+  </Accordion>
+
+  <Accordion title="What devices does Terriqon support?">
+    Terriqon works on any modern smartphone, tablet, or computer with a browser. It's a Progressive Web App (PWA) — no app store download needed. Install it on Android via Chrome using **Add to Home Screen**, on iOS via Safari's Share menu using **Add to Home Screen**, or on desktop using your browser's install icon.
+  </Accordion>
+
+  <Accordion title="How do GPS fields work?">
+    When a field officer fills in a GPS field, the app uses the device's built-in location services to capture coordinates. GPS accuracy is best outdoors. In buildings, the **Use my best available location** option lets them proceed with reduced accuracy. If you don't want GPS coordinates included in AI reports, tag the GPS field as sensitive when you build the form — see [PII Stripping](/security/pii-stripping) for how tag-driven exclusion works.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Reports & AI
+
+<AccordionGroup>
+  <Accordion title="How accurate are the AI-generated reports?">
+    The AI is tuned for NGO and field data contexts. It generates reports from your **approved** submission data — validation rules at collection and the Admin/Manager Approve-or-Reject review step decide what feeds the report, so rejected or incomplete data doesn't distort your results. You have full editorial control to review and modify every section of the AI draft before approving. If a draft doesn't reflect what actually happened on the ground, reject it, note the reason, and generate a fresh one.
+  </Accordion>
+
+  <Accordion title="What are the four report types?">
+    Terriqon currently supports four AI report types, with more planned:
+
+    - **Project Report** — covers submission data, KPI progress, and field activity for a single project.
+    - **Ops Report** — an operational view of team activity, submission volume, and data completeness across the project.
+    - **Donor Report** — a funder-facing narrative covering KPIs, outcomes, and impact.
+    - **Portfolio Report** — a cross-project roll-up of KPIs and trends across every project in your organization.
+
+    Select the type that fits your reporting need when you generate a report from the Reports section of your project.
+  </Accordion>
+
+  <Accordion title="Can I edit an AI report before approving?">
+    Yes. Every section of an AI draft is editable. Click any section inline to edit. Changes are logged in the audit trail. Once you're satisfied, click **Approve Report** to finalise it.
+  </Accordion>
+
+  <Accordion title="Does a report go out automatically?">
+    No. Every AI report requires a named Organisation Admin or Manager to review and explicitly approve it. Unapproved drafts cannot be downloaded or shared. If a report is rejected, a written reason is required and permanently logged in the audit trail.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Billing & Plans
+
+<AccordionGroup>
+  <Accordion title="Do you offer discounts for NGOs?">
+    Yes. Terriqon offers an NGO Verified Discount on annual billing. To apply, email [support@terriqon.com](mailto:support@terriqon.com) with your organisation name and proof of NGO or non-profit status. The team will verify and apply the discount to your account.
+  </Accordion>
+
+  <Accordion title="Can I switch between monthly and annual billing?">
+    Yes. You can switch to annual billing at any time from the billing portal in your dashboard. The 20% discount applies immediately to your next payment.
+  </Accordion>
+
+  <Accordion title="What happens to my data if I cancel?">
+    After cancellation, your data is retained for 30 days so you can export it. After that, it is deleted from production systems within 90 days. We recommend exporting your data before cancelling.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Account & Team
+
+<AccordionGroup>
+  <Accordion title="How many Admins, Managers, and Field Officers can I have?">
+    Your account has **one Organization Admin** — the billing owner — who doesn't use a seat. **Managers and Field Officers share your plan's seat cap** in any mix: on the Field plan, for example, you could run 3 Managers and 12 Field Officers, or 15 Field Officers and no extra Managers. Each plan also allows an equal-sized archived roster. See [Roles & Seats](/concepts/roles-and-seats) for the full model.
+  </Accordion>
+
+  <Accordion title="What happens if I archive a team member?">
+    Their access to Terriqon is blocked (they can no longer sign in or use the app), but their profile, submission history, and audit trail are fully preserved. Their seat is released immediately for someone else. You can reactivate them at any time from the Team page, provided you have a free active seat on your plan.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<Note>
+  Can't find the answer you're looking for? Reach out to the team at [support@terriqon.com](mailto:support@terriqon.com) or visit [terriqon.com/support](https://terriqon.com/support) to submit a support request.
+</Note>

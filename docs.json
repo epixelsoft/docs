@@ -1,0 +1,111 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Terriqon",
+  "theme": "willow",
+  "logo": {
+    "light": "/images/terriqon-light.svg",
+    "dark": "/images/terriqon-dark.svg"
+  },
+  "favicon": {
+    "light": "https://media.brand.dev/a4b20dd6-6e86-4262-b928-3cd9d1922941.png",
+    "dark": "https://media.brand.dev/a4b20dd6-6e86-4262-b928-3cd9d1922941.png"
+  },
+  "colors": {
+    "primary": "#0c1414",
+    "light": "#0e6645",
+    "dark": "#84b4a4"
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Start Free Trial",
+      "href": "https://terriqon.com"
+    },
+    "links": [
+      {
+        "href": "https://terriqon.com/",
+        "label": "Go Back to Home"
+      }
+    ]
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "how-it-works"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/roles-and-seats",
+              "concepts/projects",
+              "concepts/registry-types",
+              "concepts/forms",
+              "concepts/offline-mode",
+              "concepts/ai-reports"
+            ]
+          },
+          {
+            "group": "Using Terriqon",
+            "pages": [
+              "guides/managing-team-members",
+              "guides/creating-a-project",
+              "guides/building-forms",
+              "guides/setting-up-kpis-and-activities",
+              "guides/collecting-data",
+              "guides/kpi-dashboards",
+              "guides/reviewing-and-approving-reports"
+            ]
+          },
+          {
+            "group": "Account & Billing",
+            "pages": [
+              "account/plans-and-pricing",
+              "account/managing-your-subscription",
+              "account/cancellation-and-refunds"
+            ]
+          },
+          {
+            "group": "Security & Privacy",
+            "pages": [
+              "security/data-protection",
+              "security/data-residency",
+              "security/pii-stripping",
+              "security/privacy-policy",
+              "security/cookies"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/contact-support"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {}
+  },
+  "redirects": [
+    {
+      "source": "/concepts/projects-and-forms",
+      "destination": "/concepts/projects",
+      "permanent": true
+    },
+    {
+      "source": "/guides/managing-field-officers",
+      "destination": "/guides/managing-team-members",
+      "permanent": true
+    }
+  ]
+}

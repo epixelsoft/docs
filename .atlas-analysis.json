@@ -1,0 +1,93 @@
+{
+  "projectType": "saas",
+  "projectName": "Terriqon",
+  "projectDescription": "Terriqon is an offline-first field reporting SaaS platform that collects structured data from field teams and uses AI to generate verified, funder-ready reports in minutes.",
+  "theme": "willow",
+  "primaryColor": "#0c1414",
+  "lightColor": "#0e6645",
+  "darkColor": "#84b4a4",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "how-it-works"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/roles-and-seats",
+              "concepts/projects-and-forms",
+              "concepts/offline-mode",
+              "concepts/ai-reports"
+            ]
+          },
+          {
+            "group": "Using Terriqon",
+            "pages": [
+              "guides/building-forms",
+              "guides/managing-field-officers",
+              "guides/collecting-data",
+              "guides/reviewing-and-approving-reports",
+              "guides/kpi-dashboards"
+            ]
+          },
+          {
+            "group": "Account & Billing",
+            "pages": [
+              "account/plans-and-pricing",
+              "account/managing-your-subscription",
+              "account/cancellation-and-refunds"
+            ]
+          },
+          {
+            "group": "Security & Privacy",
+            "pages": [
+              "security/data-protection",
+              "security/pii-stripping",
+              "security/privacy-policy",
+              "security/cookies"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/contact-support"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Offline-first mobile data collection (PWA, works in zero-signal zones)",
+    "Drag-and-drop dynamic form builder",
+    "AI-generated reports (Project, Ops, Donor, Portfolio types)",
+    "Automated PII stripping before any AI processing",
+    "Human approval workflow — no report is shared without a manager sign-off",
+    "Real-time GPS and submission tracking on a live map",
+    "KPI dashboards with auto-sync",
+    "Role-based access control (Admin, Manager, Field Officer)",
+    "Data quality gating — low-confidence data is routed to human review",
+    "14-day free trial, no credit card required"
+  ],
+  "publicApiSurface": [
+    "Organization Admin role — full account, billing, and user management",
+    "Organization Manager role — project management, report review and approval",
+    "Field Officer role — form submissions via PWA (online or offline)",
+    "Form Builder — drag-and-drop interface with sensitivity field tagging",
+    "AI Reports — Project, Ops, Donor, Portfolio report types",
+    "Billing portal — plan upgrades, downgrades, seat management",
+    "Data Export — CSV, Excel, JSON via Platform or API",
+    "Starter plan ($149/mo, 15 seats, 15 AI reports/month)",
+    "Growth plan ($349/mo, 50 seats, 50 AI reports/month)",
+    "Enterprise/Command plan ($749/mo, 150 seats, unlimited AI reports)"
+  ]
+}

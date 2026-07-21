@@ -1,0 +1,49 @@
+---
+title: "Quickstart: Set Up Terriqon and Generate Your First Report"
+sidebarTitle: "Quickstart"
+description: "Set up Terriqon, build your first form, invite your field team, and generate your first AI report. No credit card required for the 14-day free trial."
+---
+
+This guide walks you through everything you need to go from a blank account to an approved, funder-ready report. By the end, you'll have set up your organization, created a project, built a registry or form, invited your team, collected your first submission, and generated your first AI report — all in a single session.
+
+<Steps>
+  <Step title="Start your free trial">
+    Go to [terriqon.com](https://terriqon.com) and click **Start Free Trial**. Enter your organization name, work email address, and a password to create your account. No credit card is required — your full 14-day trial begins immediately with access to all platform features.
+  </Step>
+  <Step title="Set up your organization">
+    After signing in, you land in the Organization Admin dashboard. Enter your organization's display name and configure your basic settings — including your default timezone and preferred report language. These settings apply across all projects and reports in your account.
+  </Step>
+  <Step title="Create a project">
+    Navigate to **Projects** and click **New Project**. Give the project a name and a start date, and optionally set its location and thematic area (for example, Health, WASH, or Livelihood). A project is the container that holds everything else — your registry or form, your team, your KPIs, and your reports. You'll attach those in the next steps and assign your team once you've invited them.
+  </Step>
+  <Step title="Build your registry or form">
+    Decide how you're collecting data:
+
+    - **Track entities over time (Path A).** If you're following individual people, facilities, schools, or assets across multiple visits, first create a **Registry** under **Records → Create Registry Type**. Define its attributes (name, age, location, and so on), mark one field as the **Primary Identifier**, and set the lifecycle statuses a record moves through (for example, Pending → Active → Graduated). Then build a **Form** whose fields match the registry and link it, so each submission updates the right record.
+    - **One-off collection (Path B).** For a survey or monitoring checklist that doesn't track a specific entity, just build a **standalone Form** under **Forms → New Form**.
+
+    Either way, use the drag-and-drop builder to add your fields. For any field that captures personal data — a name, phone number, ID, or GPS location — set its **Sensitivity** tag to Personally Identifiable. Terriqon excludes tagged fields from the AI pipeline entirely, so reports are built only from aggregated, anonymised metrics. Publish the form when it's ready.
+  </Step>
+  <Step title="Invite your team members">
+    Go to **Team** and click **Invite**. Add the **Managers** who will oversee projects and review reports, and the **Field Officers** who will collect data in the field. Each person receives an email to install the Terriqon PWA on their phone or tablet — no app store required.
+
+    Your **Organization Admin** owns billing and doesn't use a seat. **Managers and Field Officers together count toward your plan's seat limit** — for example, the Field plan covers 15 users in total. Once invited, assign your Managers to the project and your Field Officers to the form so they can start collecting.
+  </Step>
+  <Step title="Create KPIs and activities (optional)">
+    If you want to track progress against targets, open your project's **KPI & Activities** tab. Create a **KPI** — a measurable goal such as "500 households surveyed" — choosing its type (Numeric, Percentage, or Binary), a target value, and a unit. Then add **Activities** beneath it: the specific, time-bound tasks that move that KPI forward. KPI progress and dashboards update automatically as activities are completed and data arrives. Note that a KPI's type is locked once you save it, so choose Numeric, Percentage, or Binary carefully.
+  </Step>
+  <Step title="Collect the data">
+    Ask one of your Field Officers to open the Terriqon PWA on their device. They'll see the assigned form and can begin filling it in immediately — whether they have internet access or not. If they're offline, the submission is saved locally and syncs to the platform automatically as soon as connectivity returns. Incoming submissions appear in your project dashboard in real time.
+  </Step>
+  <Step title="Generate your first AI report">
+    Once your project has a published form with enough validated submissions, open the project's **Reports** and click **Generate Report**. Choose the report type that fits your need — **Project**, **Ops**, **Donor**, or **Portfolio** — and confirm. Terriqon aggregates the data (excluding your sensitive-tagged fields) and drafts the report. When the draft is ready, a Manager or Admin reviews it, makes any manual edits, and clicks **Approve** to finalize it. The report is only available for download after that named sign-off.
+  </Step>
+</Steps>
+
+<Tip>
+  Your first AI report is usually ready within 15 minutes of having enough validated submissions. The exact time depends on submission volume and the selected report type.
+</Tip>
+
+<Note>
+  Want to understand what's happening under the hood between data collection and your finished report? Read the [How It Works](/how-it-works) guide for a detailed walkthrough of the AI pipeline, PII stripping, and the human approval workflow.
+</Note>

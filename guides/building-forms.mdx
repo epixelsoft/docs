@@ -1,0 +1,134 @@
+---
+title: "Build and Publish Data Collection Forms in Terriqon"
+sidebarTitle: "Building Forms"
+description: "Use Terriqon's drag-and-drop form builder to create data collection forms, tag sensitive fields, and deploy them directly to your field team."
+---
+
+Terriqon's form builder lets you design and deploy data collection forms without writing a single line of code. You drag field types onto a canvas, organize them into sections, configure each one, tag any fields that contain personal data, and publish the form directly to your field team's mobile devices. This guide walks you through the entire process — from opening the builder to publishing a finished form to your field team.
+
+## Accessing the Form Builder
+
+You can open the builder in two places:
+
+- **Inside a project** — go to your project, open the **Forms** tab, and click **Add Form**. Forms created here belong to that project.
+- **Globally** — from the main sidebar, go to **Forms → New Form**. Useful when you're building a form that isn't tied to a specific project yet, or when you want to reuse the structure across projects.
+
+Give your form a name and a unique code, add an optional description, and click **Create**. The builder canvas opens and you're ready to start structuring the form.
+
+<Tip>
+  Before you start from scratch, check whether a [**Form Template**](/concepts/forms#form-templates) already exists for what you're building — household assessment, monthly follow-up, facility inspection. Templates are organization-level reusable blueprints; starting from one saves you rebuilding sections and fields you've already designed elsewhere.
+</Tip>
+
+## Structuring the Form With Sections
+
+Every form is organized into **Sections** — logical groupings that hold your fields. Section headers give your field officers context as they move through longer forms and help them keep their place without losing track of what data they've already captured.
+
+Typical sections in a beneficiary intake form might be **Personal Info**, **Household Data**, and **Health History**. Add a section from the builder's left panel, name it, and drag it onto the canvas. Fields you add next will sit inside the currently selected section.
+
+For very short forms (five fields or fewer) a single default section is fine. Anything longer benefits from grouping.
+
+## Adding Fields
+
+<Steps>
+  <Step title="Drag a field type onto the canvas">
+    Choose a field type from the left panel and drag it into a section. You can reorder fields at any time by dragging them up or down, and move them between sections the same way.
+  </Step>
+  <Step title="Configure the field">
+    Click any field on the canvas to open its settings panel on the right. Set the field **Label** (what your field officers see), an optional **Placeholder** (hint text inside the input), and **Help text** (a short instruction shown beneath the field), then toggle **Required** or **Optional**.
+  </Step>
+  <Step title="Set validations where needed">
+    For text and number fields, you can enforce **min/max length**, **min/max value**, or a **regex pattern** to catch malformed values at the point of collection rather than during report generation.
+  </Step>
+  <Step title="Tag sensitive fields">
+    For fields that may contain personal data — names, phone numbers, national IDs, GPS coordinates — open the field settings and set the **Sensitivity** tag to **Personally Identifiable** or **Restricted**. See [Tagging Sensitive Fields](#tagging-sensitive-fields) below for why this matters.
+  </Step>
+  <Step title="Repeat for all fields">
+    Continue adding, configuring, and grouping fields until your form covers everything your programme needs to capture.
+  </Step>
+</Steps>
+
+## Field Types Available
+
+Terriqon supports the following field types:
+
+| Field Type | Use Case |
+| --- | --- |
+| **Short Text** | Single-line responses: names, codes, brief answers |
+| **Long Text** | Multi-line narrative responses, notes, observations |
+| **Number** | Counts, quantities, scores, and measurements |
+| **Date** | Birth dates, event dates, visit timestamps |
+| **Dropdown** | Single answer from a predefined list |
+| **Multi-Select** | One or more answers from a predefined list |
+| **Checkbox** | Yes/No, True/False |
+| **Rating** | 1–5 scale questions |
+| **Image Upload** | Photo evidence, site photos |
+| **File Upload** | Documents, PDFs, spreadsheets |
+| **GPS Location** | Auto-captures latitude and longitude from the device |
+| **Signature** | Touch or stylus signature from the respondent |
+| **Section Header** | Visual dividers inside long forms |
+
+## Tagging Sensitive Fields
+
+When you tag a field as **Personally Identifiable** or **Restricted**, Terriqon excludes that field from the dataset the AI receives during report generation. The AI works only on aggregated, anonymised metrics — it never sees the raw values of tagged fields.
+
+Because exclusion is driven by your tags, tagging every PII field when you build the form is what keeps personal data out of the pipeline. Two important consequences follow:
+
+- **Beneficiary privacy is protected.** Names, IDs, phone numbers, and location data you've tagged never enter the AI processing layer.
+- **Data governance is supported.** Your reports are generated from aggregated metrics, not from identifiable records — supporting your GDPR obligations and most donor data governance requirements. Terriqon strictly follows GDPR principles, though it does not hold a formal certification.
+
+<Tip>
+  Tag GPS, name, ID, and phone fields as sensitive whenever they appear on a form. This is the mechanism that keeps beneficiary data out of AI reports — untagged fields flow through to the AI as-is.
+</Tip>
+
+## Linking a Form to a Registry Type
+
+If your form is registering or updating an entity you're tracking over time — a beneficiary, a facility, a school, an asset — link it to the appropriate [**Registry Type**](/concepts/registry-types) so approved submissions create or update the right record automatically.
+
+From the Registry Types list, open the registry you want and link this form. From that point, each approved submission is matched against existing records by the registry's Primary Identifier, and either creates a new record or updates the matching one.
+
+You don't need to link a form to a registry. Standalone forms (surveys, monitoring checklists, one-off data collection) work perfectly well — submissions are simply reviewed and stored without updating any entity. See [Forms](/concepts/forms) for the difference between the two paths.
+
+## Assigning Field Officers
+
+Every form needs at least one Field Officer assigned before it will appear on any device. From the form's settings, specify which officers can submit this form from the mobile app. Only the officers you assign will see the form on their home screen.
+
+You can add or remove assigned officers at any time. Changes take effect the next time each device syncs.
+
+## Publishing
+
+Before you publish, click **Preview** in the top toolbar. The preview renders your form exactly as it will appear on a mobile device, so you can check field order, label clarity, section grouping, and layout on a small screen.
+
+When you're satisfied with the form:
+
+<Steps>
+  <Step title="Click Publish">
+    The form moves from **Draft** to **Published** status.
+  </Step>
+  <Step title="The form appears on assigned devices">
+    Assigned Field Officers see the form on their home screen the next time their device syncs. If they're offline at publish time, they'll receive it as soon as connectivity returns.
+  </Step>
+</Steps>
+
+Every form is in one of three states at any given time:
+
+| State | What it means |
+| --- | --- |
+| **Draft** | Not visible to field officers; still being built |
+| **Published** | Live — assigned field officers can see and submit it |
+| **Unpublished** | Pulled from field officers, but existing submissions remain visible for review and reporting |
+
+Unpublishing is useful when you need to pause a form (for example, mid-cycle changes to a monitoring schedule) without losing the data already collected.
+
+<Warning>
+  Once a form is used in a live project with submissions, changes to field structure may affect data consistency. Create a new form version if major changes are needed, rather than editing the published form in place.
+</Warning>
+
+## What Happens After You Publish
+
+Field Officers start submitting data from their devices. Every submission passes through a review step: an Admin or Manager approves or rejects each one (rejections carry a written reason, up to 255 characters). Only approved submissions feed KPIs and AI reports.
+
+See [Forms → The submission review flow](/concepts/forms#the-submission-review-flow) for the full picture of what an approved submission triggers downstream.
+
+## Importing Existing Forms
+
+If your organization already has forms built in Excel, XLSForm, KoboToolbox, or a similar tool, you may not need to rebuild them from scratch. Contact [Terriqon Support](mailto:support@terriqon.com) to discuss import options. The support team can advise on the best migration path based on your existing form structure.

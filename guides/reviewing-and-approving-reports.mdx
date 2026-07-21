@@ -1,0 +1,142 @@
+---
+title: "Review, Approve, and Download AI-Generated Reports"
+sidebarTitle: "Approving Reports"
+description: "Generate an AI report, review the draft, edit sections, and approve or reject with a written reason. Every report requires a named Admin or Manager sign-off before it can be downloaded."
+---
+
+Terriqon's AI can turn weeks of field data into a structured, funder-ready report draft in about a minute — but no draft ever leaves your organization without a human sign-off. As an Organization Admin or Manager, you are the final checkpoint. You review the draft, make edits, and either approve the report for distribution or reject it and send it back to draft. This guide walks you through the full flow, from triggering a report to downloading the finished document.
+
+## Who Can Generate and Approve Reports
+
+Report generation and approval are restricted to users with the appropriate role:
+
+| Role | Can Generate | Can Review & Edit | Can Approve or Reject |
+| --- | --- | --- | --- |
+| **Organization Admin** | Yes | Yes | Yes |
+| **Manager** | Yes | Yes | Yes |
+| **Field Officer** | No | No | No |
+
+Field Officers submit the data that feeds reports but don't access the report generation or approval flow. This separation keeps sensitive programme narratives and funder communications inside the authorized team.
+
+## Before You Generate a Report
+
+The **Reports** button on a project appears only once the project meets two preconditions:
+
+- At least one **published form** exists on the project, and
+- That form has **approved submissions** feeding it.
+
+If you open the project's Reports tab and don't see the Generate button, that's why: publish a form and get some submissions approved first. See [Building Forms](/guides/building-forms) and [Forms → The submission review flow](/concepts/forms#the-submission-review-flow) if you need a refresher on either step.
+
+<Info>
+  The Approve/Reject step on submissions is what decides which data reaches the report. Only **approved** submissions feed the AI. Rejected or pending submissions are excluded automatically.
+</Info>
+
+## Generating a Report
+
+<Steps>
+  <Step title="Open the Reports tab">
+    Navigate to your project from the **Projects** sidebar and open the **Reports** tab at the top of the project page.
+  </Step>
+  <Step title="Click Generate Report">
+    Click the **Generate Report** button. A setup panel slides in from the right.
+  </Step>
+  <Step title="Select a report type">
+    Choose the type that matches your reporting need. Terriqon currently offers four, with more planned.
+
+    <CardGroup cols={2}>
+      <Card title="Project Report" icon="folder-open">
+        A narrative covering activities, outputs, and outcomes for a single project — useful for internal reviews and project-level funder updates.
+      </Card>
+
+      <Card title="Ops Report" icon="gears">
+        An operational view of team activity, submission volume, and data completeness across the project.
+      </Card>
+
+      <Card title="Donor Report" icon="handshake">
+        A funder-facing narrative covering KPIs, outcomes, and impact — formatted for external distribution.
+      </Card>
+
+      <Card title="Portfolio Report" icon="chart-bar">
+        A cross-project roll-up: KPIs and trends aggregated across every project in your organization.
+      </Card>
+    </CardGroup>
+  </Step>
+  <Step title="Confirm and start generation">
+    Click **Generate**. The report moves through **Queued → Generating → Pending Approval**, and the AI typically finishes drafting in about **30–60 seconds**. You can navigate away and continue other work — Terriqon runs the generation in the background.
+  </Step>
+  <Step title="Receive the notification">
+    When the draft is ready, you receive both an in-app notification and an email. Click the notification to go directly to the review screen.
+  </Step>
+</Steps>
+
+## Reviewing the Draft
+
+Every AI report is drafted into the same set of sections, so you always know where to look:
+
+- **Executive Summary** — a high-level snapshot of project performance
+- **Key Findings** — data-driven insights from your submissions
+- **Recommendations** — AI-suggested next steps
+- **KPI status** — where each KPI stands against its target
+- **Statistical tables** — aggregates and breakdowns from your submission data
+
+The review screen shows the draft narrative on the left with the underlying aggregated metrics on the right — submission counts, completion rates, field-level statistics, and computed KPI progress. Work through each section of the narrative and cross-reference the metrics panel to confirm the numbers.
+
+<Info>
+  Fields you tagged as **Personally Identifiable** or **Restricted** during form design are excluded from the dataset the AI receives, so the draft is built from aggregated, anonymised metrics only. If a report references personal data you didn't intend to include, the fix is to tag that field on the form before your next report — see [Building Forms → Tagging Sensitive Fields](/guides/building-forms#tagging-sensitive-fields).
+</Info>
+
+## Editing the Report
+
+Every section of the report narrative is editable inline. Click any paragraph or heading to activate the text editor for that section.
+
+Common edits include:
+
+- Adding programme context the AI couldn't infer from submission data alone
+- Adjusting tone to match your organization's voice or a specific funder's expectations
+- Correcting figures if you spot a data anomaly
+- Inserting a quote or case study from your field team
+
+All edits are tracked in the report's **audit trail**, which records what was changed, by whom, and at what time. The audit trail cannot be edited or deleted.
+
+<Note>
+  Once approved, the report is final. If you need to make changes after approval, generate a new report from the Reports tab rather than trying to modify the approved document.
+</Note>
+
+## Approving a Report
+
+When the draft reads accurately:
+
+<Steps>
+  <Step title="Click Approve">
+    Click the **Approve** button in the top-right of the review screen. The approval is logged in the report's audit trail with your name, role, and timestamp — creating a defensible chain of custody from field submission to approved funder deliverable.
+  </Step>
+  <Step title="Download or share">
+    The approved report becomes available to download as a **PDF** or **DOCX**. Share it directly with your funders or attach it to a grant report.
+  </Step>
+</Steps>
+
+<Warning>
+  Don't share an unapproved AI draft externally. Only approved reports carry the full audit trail and named-reviewer record; unapproved drafts don't, which could create compliance exposure if a funder or partner questions the source of a figure.
+</Warning>
+
+## Rejecting a Report
+
+If the draft is inaccurate, incomplete, or otherwise unsuitable:
+
+<Steps>
+  <Step title="Click Reject">
+    Click the **Reject** button in the top-right of the review screen.
+  </Step>
+  <Step title="Enter a written reason">
+    A reason is required (up to **255 characters**) — a short, clear explanation like "Submission count too low for Q3; collect more data from the northern district before regenerating." This reason is visible to all Admins and Managers on the project and is recorded permanently in the audit trail.
+  </Step>
+  <Step title="Confirm rejection">
+    Click **Confirm Rejection**. The report returns to **Draft** status, ready to be regenerated once you've addressed the underlying issue — usually by getting more submissions approved, or by fixing a form field tag.
+  </Step>
+</Steps>
+
+Once rejected, you can either generate a fresh report after fixing the data issue, or edit the existing draft manually and re-submit it for approval.
+
+## Managing Reports Across Projects
+
+If your organization runs multiple projects, use the global **Reports** view from the left sidebar to see every report across every project in one list. From there you can filter by status (Pending, Approved, Rejected), project, date range, or report type — and **bulk approve or reject** a batch of pending reports when they're ready for the same decision. Rejections in bulk still require a written reason for each. See [AI Reports → Managing Reports Across Projects](/concepts/ai-reports#managing-reports-across-projects) for more.

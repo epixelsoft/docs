@@ -1,0 +1,130 @@
+---
+title: "Forms in Terriqon: Design, Deploy, and Review Submissions"
+sidebarTitle: "Forms"
+description: "Forms are how your field team collects data. Design them in the drag-and-drop builder, tag sensitive fields, publish to devices, and review submissions before they feed reports."
+---
+
+A **Form** is the instrument your field team fills in at the point of work — the questions, field types, and validation rules that turn observations on the ground into structured data. Forms are built in a drag-and-drop builder, deployed to Field Officers' devices as part of a project, and every submission is reviewed before it feeds a KPI or an AI report.
+
+Every form belongs to exactly one project, but a project can hold as many forms as you need — registration one week, follow-up the next, exit interview at the end.
+
+## Two ways a form is used
+
+When you create a form, you're choosing one of two roles for it:
+
+- **Linked to a Registry Type (Path A)** — the form's fields mirror the registry's attributes, and every approved submission creates a new record or updates an existing one. Use this when you're tracking individuals, facilities, or assets over time. See [Registry Types](/concepts/registry-types) for the entity side of this pairing.
+- **Standalone (Path B)** — the form stands alone, and submissions are reviewed and stored without linking to any entity. Use this for surveys, monitoring checklists, or one-off data collection.
+
+A single project can run both kinds side by side — for example, a registry-linked registration form and a standalone monthly monitoring form.
+
+## Building a form
+
+Open your project, go to the **Forms** tab, and click **Add Form** (or use the global form builder from the sidebar).
+
+### Basics
+
+Name the form and assign it a unique code. If you're on Path A, this is the point to link it to the appropriate Registry Type — doing it now enables automatic record matching from the first submission.
+
+### Sections and fields
+
+Forms are organized into **Sections** — logical groupings like "Personal Info", "Household Data", or "Health History" — with fields inside each. Sections help field officers move through long forms without losing context.
+
+Available field types:
+
+| Type | Use for |
+| --- | --- |
+| **Short Text** | Names, IDs, brief answers |
+| **Long Text** | Open-ended responses, notes, observations |
+| **Number** | Quantities, ages, scores, counts |
+| **Date** | Birth dates, event dates |
+| **Dropdown** | Single choice from a predefined list |
+| **Multi-Select** | Multiple choices from a predefined list |
+| **Checkbox** | Yes/No, True/False |
+| **Rating** | 1–5 scale questions |
+| **Image Upload** | Photo evidence, site photos |
+| **File Upload** | Documents, PDFs, spreadsheets |
+| **GPS Location** | Auto-captures device coordinates |
+| **Signature** | Digital sign-off |
+| **Section Header** | Visual dividers inside long forms |
+
+### Per-field settings
+
+Each field has:
+
+- **Label**, **placeholder** text, and **help text**
+- **Required or Optional** toggle
+- **Validations** — min/max length, min/max value, regex pattern
+- **Sensitivity flag** — marks the field as containing PII or other sensitive data
+
+### Sensitivity tagging
+
+Fields you tag as **Personally Identifiable** or **Restricted** are excluded from the AI report pipeline entirely. The AI works only on aggregated, anonymised metrics; it never sees the raw values of tagged fields. Because the exclusion is driven by your tags, tagging every PII field when you build the form is what keeps personal data out of the pipeline.
+
+<Tip>
+  Tag names, phone numbers, national IDs, and GPS coordinates as sensitive during form design. Terriqon's builder prompts you to do this because it's the mechanism that keeps beneficiary data out of AI reports.
+</Tip>
+
+### Assign Field Officers
+
+Specify which Field Officers can submit this form from the mobile app. Only assigned officers see the form on their device.
+
+### Publish
+
+Moves the form from Draft to active. Published forms appear on assigned Field Officers' devices the next time they sync.
+
+## Form states
+
+| State | What it means |
+| --- | --- |
+| **Draft** | Not visible to field officers; still being built |
+| **Published** | Live — assigned field officers can see and submit it |
+| **Unpublished** | Pulled from field officers; existing submissions remain visible |
+
+## Form Templates
+
+If your organization runs the same survey type across multiple projects — a household assessment, a monthly follow-up, a facility inspection checklist — save it as a **Form Template** at **Projects → Templates** instead of rebuilding each time.
+
+Templates are organization-level, so they're accessible from any project. Creating a new form from a template generates a pre-populated draft — sections and fields already added — which you customize before linking and publishing. The template itself is never modified; it's a true reusable blueprint.
+
+Each template's detail view shows the full read-only field structure, every form that's been created from it, and a **Use Template** action.
+
+## The submission review flow
+
+When a Field Officer submits a form, it doesn't go straight into your data. Every submission passes through a review step:
+
+1. Field Officer submits → appears as **Pending** in the submissions list.
+2. Admin or Manager reviews the data.
+3. **Approve** — the submission is confirmed; if the form is linked to a registry, it creates or updates the matching record (Path A).
+4. **Reject** — the submission is flagged; a rejection reason can be entered (up to 255 characters).
+
+Only approved submissions feed KPIs and AI reports. This is your quality gate — it keeps incomplete or malformed data from silently distorting your dashboards.
+
+On Path A, a submission that partially matches an existing record triggers a **Conflict** rather than overwriting. See [Registry Types → Conflict resolution](/concepts/registry-types#conflict-resolution) for how to resolve those side by side.
+
+## What flows from an approved submission
+
+Every approved submission does three things at once:
+
+- **Updates the KPI** it contributes to (for Numeric and Percentage KPIs, its data adds to the achieved total)
+- **Updates any linked registry record** (Path A only — creating a new record or updating an existing one)
+- **Becomes eligible input for the next AI report** the project generates (with your sensitive-tagged fields excluded)
+
+That's why review matters: the same submission moves your metrics, your entity records, and your reports simultaneously.
+
+<CardGroup cols={2}>
+  <Card title="Registry Types" icon="database" href="/concepts/registry-types">
+    Track beneficiaries, facilities, schools, or assets over time — the entity side of Path A.
+  </Card>
+
+  <Card title="Projects" icon="folder-tree" href="/concepts/projects">
+    The container every form belongs to.
+  </Card>
+
+  <Card title="AI Reports" icon="sparkles" href="/concepts/ai-reports">
+    How approved submissions become AI-generated reports — with mandatory human approval.
+  </Card>
+
+  <Card title="Building Forms" icon="pen-ruler" href="/guides/building-forms">
+    A step-by-step walkthrough of the form builder in action.
+  </Card>
+</CardGroup>

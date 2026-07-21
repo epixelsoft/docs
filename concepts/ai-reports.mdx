@@ -1,0 +1,85 @@
+---
+title: "AI-Generated Reports: What They Are and How They Work"
+sidebarTitle: "AI Reports"
+description: "Terriqon generates four AI report types from sanitised field data. A named manager must approve every report before it can be downloaded or shared."
+---
+
+Writing a funder-ready report from raw field submissions can take a programme team weeks — pulling figures from spreadsheets, reconciling inconsistencies, and translating operational data into a coherent narrative. Terriqon's AI report engine compresses that process to minutes. It reads your approved submission data, generates a structured narrative in the appropriate register for your audience, and then puts a human approver in the loop before anything leaves the platform. The result is a report you can trust, produced at a speed your team can actually work with.
+
+<Note>
+  AI reports are generated from aggregated metrics — every field you tag as sensitive during form design is excluded from what the AI receives, so tagged personal data never reaches the AI layer.
+</Note>
+
+## Report Types
+
+Terriqon currently generates four report types, with more planned. Each is structured for a different reporting need — but you choose the one that fits your audience, not the audience the platform assumes.
+
+<CardGroup cols={2}>
+  <Card title="Project Report" icon="chart-bar">
+    Covers submission data, KPI progress, and field activity for a single project.
+  </Card>
+
+  <Card title="Ops Report" icon="users">
+    An operational view of team activity, submission volume, and data completeness across the project.
+  </Card>
+
+  <Card title="Donor Report" icon="file-contract">
+    A funder-facing narrative covering KPIs, outcomes, and impact — written in formal language suitable for grant bodies and government partners.
+  </Card>
+
+  <Card title="Portfolio Report" icon="layer-group">
+    A cross-project roll-up: KPIs and trends aggregated across every project in your organization.
+  </Card>
+</CardGroup>
+
+<Info>
+  The **Reports** button on a project only appears once the project has at least one published form with actual submissions. If you don't see it yet, publish a form and collect a submission first.
+</Info>
+
+## How a Report Is Generated
+
+<Steps>
+  <Step title="Approved submissions are collected">
+    Only submissions that have been reviewed and **approved** by an Admin or Manager feed a report. The validation rules on your form (required fields, value ranges, format checks) already stop incomplete data from being submitted in the first place, and the review step filters out anything that got through but shouldn't count. This keeps your report grounded in a clean data set.
+  </Step>
+  <Step title="Sensitive fields are excluded from the AI dataset">
+    Before any data reaches the AI, Terriqon builds an aggregated dataset from the approved submissions and **excludes every field you tagged as sensitive** during form design — names, IDs, phone numbers, GPS coordinates, and anything else you flagged. The AI works only on the aggregated, anonymised metrics that remain; it never sees the raw values of tagged fields. Because exclusion is driven by your tags, tagging every PII field when you build the form is what keeps personal data out of the pipeline.
+  </Step>
+  <Step title="The AI generates a narrative">
+    The AI model reads the aggregated metrics and drafts a structured report in the format for the type you selected. Every report is organized into the sections your funders and stakeholders expect: an **Executive Summary**, **Key Findings**, **Recommendations**, **KPI status**, and supporting **statistical tables** — all generated from your actual submissions. Generation typically takes about 30–60 seconds; the report moves through **Queued → Generating → Pending Approval** as it goes.
+  </Step>
+  <Step title="A manager reviews and approves the draft">
+    The draft sits in the platform and can't be downloaded or shared until a named Organization Admin or Manager reviews it. Reviewers can read, edit, and annotate every section of the draft before making a decision.
+  </Step>
+  <Step title="The report is approved and made available">
+    Once a manager approves the report, it becomes available to download as a **PDF or DOCX** or share via a secure link. The approval — including the reviewer's name and timestamp — is permanently recorded in the report's audit trail.
+  </Step>
+</Steps>
+
+## The Approval Requirement
+
+No report can be downloaded, shared, or exported without a named Organization Admin or Manager formally approving it. This is not optional and cannot be bypassed.
+
+If a reviewer rejects a draft, they are required to provide a written reason (up to 255 characters) before the rejection is logged. The rejected draft, the reason, and the reviewer's identity are all stored permanently in the report's audit trail. A new draft can then be triggered with corrected data or revised parameters.
+
+The approval trail gives your organization a defensible record of human oversight for every report that leaves the platform — important for organizations subject to donor accountability requirements or data governance frameworks.
+
+## Managing Reports Across Projects
+
+Alongside each project's own Reports panel, Terriqon has a **global Reports list** where Admins can see every report your organization has generated. From this list you can:
+
+- **Filter by status** — Pending, Approved, or Rejected — to find the reports that need action.
+- **Filter by project, date range, or report type** — useful when you're preparing a quarterly review or auditing donor deliverables.
+- **Bulk approve or bulk reject** — select multiple reports at once when a batch is ready for the same decision. Rejections still require a written reason.
+
+This makes report review manageable when your organization is generating dozens of reports per month across multiple programmes.
+
+## AI Accuracy and Your Editorial Control
+
+Terriqon's AI is a decision-support tool, not a replacement for programme expertise. It produces structurally sound, contextually appropriate drafts — but it does not have knowledge of your specific programme history, local context, or organizational voice.
+
+That's why the approval step exists. You have full editorial control over every draft before it's approved: sections can be rewritten, figures corrected, tone adjusted for your specific audience. If a draft doesn't reflect what actually happened on the ground, you reject it, note the reason, and generate a fresh one.
+
+<Tip>
+  Edit any section of an AI draft before approving. Use the editor to add context, correct figures, or adjust tone for your specific audience.
+</Tip>

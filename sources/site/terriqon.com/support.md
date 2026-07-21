@@ -1,0 +1,33 @@
+# Source: https://terriqon.com/support
+
+Support
+
+# Customer Support
+
+Tell us how we can help. We'll get back to you as soon as possible.
+
+Who are you? \*Select…Existing CustomerTrial UserInterested in TerriqonPartner / NGOOther
+
+Issue Type \*Select…Technical IssueBilling & SubscriptionAccount AccessData & ReportsMobile App IssueFeature RequestTraining & OnboardingDemo / Sales InquiryOther
+
+Full Name \*
+
+Organization Name
+
+Email Address \*
+
+Phone Number
+
+CountrySelect country…AfghanistanAlbaniaAlgeriaAndorraAngolaArgentinaArmeniaAustraliaAustriaAzerbaijanBahrainBangladeshBelarusBelgiumBoliviaBosnia and HerzegovinaBrazilBulgariaCambodiaCameroonCanadaChileChinaColombiaCongoCroatiaCubaCyprusCzech RepublicDenmarkDominican RepublicEcuadorEgyptEstoniaEthiopiaFinlandFranceGeorgiaGermanyGhanaGreeceGuatemalaHondurasHungaryIcelandIndiaIndonesiaIranIraqIrelandIsraelItalyJamaicaJapanJordanKazakhstanKenyaKuwaitLatviaLebanonLibyaLithuaniaLuxembourgMalaysiaMaliMaltaMexicoMoldovaMongoliaMoroccoMozambiqueMyanmarNamibiaNepalNetherlandsNew ZealandNicaraguaNigeriaNorwayOmanPakistanPalestinePanamaParaguayPeruPhilippinesPolandPortugalQatarRomaniaRussiaRwandaSaudi ArabiaSenegalSerbiaSingaporeSlovakiaSloveniaSomaliaSouth AfricaSouth KoreaSpainSri LankaSudanSwedenSwitzerlandSyriaTaiwanTanzaniaThailandTunisiaTurkeyUgandaUkraineUnited Arab EmiratesUnited KingdomUnited StatesUruguayUzbekistanVenezuelaVietnamYemenZambiaZimbabweOther
+
+Subject \*
+
+Description \*
+
+AttachmentClick to upload a filePNG, JPG, PDF, DOCX, XLSX, ZIP
+
+You may attach screenshots, documents, or error details. Max 10 MB.
+
+\* Required fields
+
+Submit Support Request

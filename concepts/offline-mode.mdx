@@ -1,0 +1,88 @@
+---
+title: "Offline Data Collection: How Terriqon Works Without Internet"
+sidebarTitle: "Offline Mode"
+description: "Terriqon's mobile app works in zero-signal zones. Field officers collect data offline and submissions auto-sync when connectivity is restored."
+---
+
+Many of the communities where field teams work have no reliable mobile signal, let alone broadband. Terriqon is built offline-first, which means the mobile app is fully functional with zero network connectivity — not as a fallback mode, but as the default design. Field Officers collect data exactly as they would online, and the platform handles synchronisation automatically the moment a connection becomes available. Your team never has to think about whether they have signal before opening the app.
+
+<Warning>
+  Ensure field officers have logged in and downloaded forms while online before heading into a zero-signal area.
+</Warning>
+
+## How Offline Mode Works
+
+Terriqon is a Progressive Web App (PWA), which means it runs in a browser but behaves like a native app — including the ability to store data locally on the device.
+
+<Steps>
+  <Step title="Forms are cached on the device">
+    When a Field Officer logs in and opens a project while online, the app downloads and stores the form schema locally. The form remains available even if the device is subsequently taken offline for days or weeks.
+  </Step>
+  <Step title="Submissions are queued locally">
+    When a Field Officer fills in and submits a form with no connectivity, the submission is encrypted and saved to the device's local storage queue. The app confirms the save with a visual indicator so the officer knows the data is secure.
+  </Step>
+  <Step title="Sync happens automatically">
+    The moment the device detects connectivity — WiFi, mobile data, or satellite — the app uploads all queued submissions to Terriqon in the background. Background sync runs via the service worker, so submissions can upload even when the Terriqon tab isn't open. No manual action is needed, and if a sync fails, the app retries automatically with an increasing delay.
+  </Step>
+  <Step title="Managers see synced data immediately">
+    Once submissions land on the server they appear in the project's submission log and KPI dashboard in real time. Managers can start reviewing data as soon as the first Field Officer's device syncs.
+  </Step>
+</Steps>
+
+## Installing the PWA
+
+Install Terriqon on a device before going into the field so the app shell and cached forms are available offline.
+
+**Android (Chrome)**
+
+1. Open [terriqon.com](https://terriqon.com) in Chrome.
+2. Tap the three-dot browser menu in the top-right corner.
+3. Tap **Add to Home Screen** and confirm.
+
+**iOS (Safari)**
+
+1. Open [terriqon.com](https://terriqon.com) in Safari.
+2. Tap the **Share** button at the bottom of the screen.
+3. Scroll down and tap **Add to Home Screen**, then tap **Add**.
+
+**Desktop (Chrome or Edge)**
+
+1. Open [terriqon.com](https://terriqon.com).
+2. Click the install icon (a small screen with an arrow) in the browser address bar.
+3. Click **Install** in the prompt that appears.
+
+<Note>
+  Terriqon must be installed via the browser's native "Add to Home Screen" flow — it is not available through the Apple App Store or Google Play Store.
+</Note>
+
+## What Works Offline vs. Online
+
+| Feature | Offline | Requires connectivity |
+| --- | --- | --- |
+| Filling in forms | ✅ |  |
+| Saving drafts | ✅ |  |
+| Viewing previously synced project info | ✅ |  |
+| Initial login |  | ✅ |
+| Receiving form updates pushed by a manager |  | ✅ |
+| Submission sync to the server |  | ✅ |
+| Viewing KPI dashboards |  | ✅ |
+| Generating or approving AI reports |  | ✅ |
+
+## Conflict Resolution
+
+When your project uses a [Registry Type](/concepts/registry-types) to track entities (beneficiaries, facilities, schools, or assets), an incoming submission occasionally partially matches an existing record — same person, but different values in one or more fields. Rather than silently overwrite the existing record, Terriqon flags a **Conflict** and lets a Manager resolve it manually.
+
+The **Conflicts** tab under Records shows each flagged case side by side, field by field. You choose which value to keep for each field, and the resolution merges into a single clean record. The Conflicts action is disabled when your registry has no conflicts and enables the moment one appears — so it stays out of the way until you need it.
+
+For standalone forms (no registry link), submissions don't create conflicts — they're reviewed individually in the submission review flow and approved or rejected.
+
+## Under the Hood
+
+For teams that want to know exactly what the app is doing:
+
+- **Local storage** — Terriqon uses **IndexedDB**, the browser's proper local database, not cookies or LocalStorage. That gives the app access to a large chunk of the device's storage and lets it hold forms, submissions, files, and pending sync jobs safely between sessions.
+- **On-device encryption** — pending submissions and cached auth data are encrypted at rest on the device. If the device is lost, the data isn't readable from the raw storage without the app and the right credentials.
+- **Sync ordering** — when the app reconnects it processes work in a specific order: **registry records first, then their submissions, then any files** (photos, signatures, documents). This ordering guarantees that a submission never syncs before the record it belongs to, so the server never sees an orphaned reference.
+- **Background sync** — sync is registered with the browser's service worker. That means the device can complete a pending upload after the Field Officer closes the tab, provided the browser is running in the background.
+- **Automatic retries** — sync failures don't get dropped. Failed items retry with exponential backoff, so a brief network hiccup resolves itself without any user action.
+- **Delta sync for forms** — when a Manager publishes a form update, the app only downloads what changed on next connect, keeping data usage minimal for field teams on slow or metered connections.

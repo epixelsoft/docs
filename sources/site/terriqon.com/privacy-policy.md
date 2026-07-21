@@ -1,0 +1,178 @@
+# Source: https://terriqon.com/privacy-policy
+
+Legal
+
+# Privacy Policy
+
+A product of Epixel Software Private Limited
+
+Effective Date: July 1, 2026  ·  Version 1.1
+
+This Privacy Policy explains how Epixel Software Private Limited ("EPixelSoft," "Terriqon," "we," "us," or "our"), a company registered in India with its registered office at 1415-B, Jain Nagar Karala, New Delhi, Delhi, India – 110081, collects, uses, discloses, and protects personal data in connection with the Terriqon platform and terriqon.com. This Policy is incorporated into, and should be read together with, our Terms of Service. Capitalized terms not defined here have the meaning given in the Terms of Service.
+
+This Policy is designed to comply with the Digital Personal Data Protection Act, 2023 (India) ("DPDP Act"), and, in respect of personal data of individuals located in the European Union or European Economic Area, the General Data Protection Regulation (EU) 2016/679 ("GDPR"). This Policy is one part of a broader compliance program; certain point-of-collection notices (for example, at account registration or on the cookie consent banner) may supplement this Policy with shorter, context-specific disclosures.
+
+## 1\. Our Role: Data Fiduciary and Data Processor
+
+Terriqon serves two distinct roles depending on the type of personal data involved, and this distinction determines who is responsible for what:
+
+### 1.1 Where We Act as Data Fiduciary / Controller
+
+For personal data relating to Customer's own personnel who use the Platform (Organization Admins, Organization Managers, and Field Officers), and for personal data of visitors to our website and marketing contacts, we act as the Data Fiduciary (under the DPDP Act) or Controller (under the GDPR). This means we determine the purposes and means of processing that data, and this Policy governs that processing directly.
+
+Within Customer's organization, Customer administrators (Organization Admins and Organization Managers) can access and manage information relating to users within their organization, including roles, account status, project assignment, form submission activity, and audit history — an individual Authorized User's account is visible to and managed by their employing organization, not private from it.
+
+### 1.2 Where We Act as Data Processor
+
+For the field data that Customer and its Authorized Users collect and submit through the Platform — including form submissions that may describe or relate to Customer's own beneficiaries, program participants, or other third parties ("Field Data") — we act solely as a Data Processor (or "Processor") on Customer's instructions. Customer is the Data Fiduciary / Controller responsible for that Field Data, including for ensuring it has a lawful basis to collect it, providing any required notices to the individuals it describes, and responding to their rights requests. We process Field Data only as instructed by Customer, as described in this Policy and our Terms of Service, and in accordance with applicable law. For customers subject to the GDPR, this relationship is additionally governed by a separate Data Processing Agreement containing the terms required under GDPR Article 28, available on request.
+
+## 2\. Personal Data We Collect
+
+### 2.1 Account and Organization Data
+
+When Customer creates a Terriqon account and invites Authorized Users, we collect: name, email address, role (Organization Admin, Organization Manager, or Field Officer), organization affiliation, and account activity logs (login timestamps, invitation and status history). We also collect technical data needed to operate and secure the Platform, including IP address, device and browser information, security and audit logs, approximate location derived from IP address, API usage data, organization settings, and role-change history.
+
+### 2.2 Field Data
+
+Data submitted through Terriqon's dynamic forms by Field Officers in the course of their work, which may include information about program beneficiaries, survey respondents, or other individuals described by Customer's data collection activities. As described in Section 4, sensitive and personally identifying fields within Field Data are excluded from AI processing on a best-efforts, not guaranteed, basis.
+
+### 2.3 Billing Data
+
+Billing contact name, email, and organization address. Full payment card details are collected and processed directly by Stripe, our payment processor; we do not store complete card numbers on our own systems.
+
+### 2.4 Website and Marketing Data
+
+When you visit terriqon.com, we (via PostHog) may collect usage data such as pages visited, device and browser type, and general location (derived from IP address). If you contact us or subscribe to updates, we collect your name, email, and message content (via Crisp and Loops respectively).
+
+### 2.5 Support Communications
+
+Records of support requests and live chat conversations conducted through Crisp, including any personal data you choose to include in those communications, and diagnostic information you provide to help us troubleshoot an issue.
+
+## 3\. How We Use Personal Data, and Our Legal Basis
+
+We use personal data for the purposes described throughout this Policy — primarily to provide and secure the Platform, generate AI Reports at Customer's request, process payments, provide support, send service and security communications, and, where you've opted in, send product updates. Because the DPDP Act and the GDPR use different legal frameworks, we describe our legal basis separately for each.
+
+### 3.1 Legal Basis — India (DPDP Act)
+
+Under the DPDP Act, we process personal data on the following bases: (a) your consent, given freely, specifically, and can be withdrawn as easily as it was given; (b) your voluntary provision of personal data for a specified purpose (for example, providing your email to receive support); (c) compliance with a legal obligation, such as tax and accounting record-keeping; and (d) other "legitimate uses" recognized under the DPDP Act, such as responding to a request for a service you have asked for.
+
+### 3.2 Legal Basis — EU/EEA (GDPR)
+
+Under GDPR Article 6, we process personal data on the following bases: (a) performance of a contract with Customer or you; (b) compliance with a legal obligation; (c) your consent, for example for optional marketing communications or non-essential cookies, which you may withdraw at any time; and (d) our legitimate interests — such as securing and improving the Platform, or supporting our customers — balanced against your rights and interests.
+
+## 4\. AI Processing and Privacy Safeguards
+
+Before any Field Data is used to generate an AI Report, it passes through an automated privacy-protection pipeline. This pipeline:
+
+- Removes any field tagged with a sensitivity classification of "personally identifiable" or "restricted", replacing the value with a redaction marker;
+- Always strips GPS coordinates and other precise geolocation data;
+- Automatically excludes structural field types known to carry personal identifiers — including free text, names, phone numbers, device and subscriber identifiers, case IDs, files, audio, and signatures — from any metric used in AI analysis;
+- Applies pattern-based detection to catch common identifier formats (national ID numbers, passport numbers, bank account and card numbers, and similar) as an additional safeguard;
+- Records a redaction manifest documenting which fields were excluded and why, retained in our audit log for traceability.
+
+This pipeline is a significant, purpose-built safeguard, but it is not a guarantee. Automated pattern-based redaction cannot guarantee that every identifier will be detected in every circumstance; aggregated statistics can, in some cases (for example, very small groups), still permit re-identification; and information Customer places in unrestricted field labels, project names, KPI names, or other metadata may not be excluded by this pipeline. Customer is responsible for configuring forms appropriately and avoiding placement of personal data outside the fields designed to carry it. Only sanitized, statistically aggregated metrics — not raw free-text field answers — are intended to be transmitted to our AI Report generation sub-processor. AI Reports themselves are reviewed by an authorized human (Organization Admin or Organization Manager) before being finalized, as described in our Terms of Service.
+
+## 5\. Sub-processors
+
+We use the following sub-processors to help us provide the Platform. Each sub-processor is bound by contractual obligations to protect personal data consistent with this Policy and applicable law, and is engaged only for the specific purpose described below.
+
+| Sub-processor | Purpose | Location |
+| --- | --- | --- |
+| Stripe | Payment processing and subscription billing | United States / Ireland |
+| Railway | Application hosting and backend infrastructure | United States |
+| Cloudflare | Content delivery network, DDoS protection, DNS (specific cookies/data processed depend on which security products are enabled) | United States (global network) |
+| PlanetScale | Managed database hosting | United States |
+| Amazon Web Services | Hosting + Object storage for organization data and report exports | United States (region-specific bucket) |
+| ZeptoMail | Transactional email delivery (invites, notifications) | United States |
+| Loops | Product and marketing email communications | United States |
+| Crisp | Customer support live chat | France / European Union |
+| PostHog | Product usage analytics | United States / European Union |
+| Metabase | Internal business intelligence and reporting | United States |
+| AI Report Generation Sub-processor | Generates AI Report narratives from sanitized, aggregated metrics only (see Section 4). We are finalizing our AI provider selection and applicable regional safeguards; the specific provider and location will be published here once confirmed. | To be confirmed |
+
+We may update this list from time to time as our infrastructure evolves. Material changes affecting the transfer of personal data will be reflected in an updated Effective Date and, where required by law, notified to Customer in advance.
+
+## 6\. Cross-Border Data Transfers
+
+As shown in the table above, some of our sub-processors are located outside India and, where applicable, outside the European Economic Area. Where personal data is transferred internationally, we implement an appropriate transfer mechanism, which may include the European Commission's Standard Contractual Clauses, the UK International Data Transfer Addendum, or another legally recognized safeguard, to the extent applicable to the transfer in question.
+
+If we finalize an AI processing sub-processor located in a jurisdiction without a GDPR adequacy decision, we will identify that provider and the applicable transfer safeguard in the table in Section 5 before routing any personal data of EU/EEA individuals to it, and, where our processing involves EU/EEA personal data, we will apply appropriate transfer safeguards consistent with this Section.
+
+Under the DPDP Act, cross-border transfer of personal data is permitted except to countries restricted by the Government of India from time to time. We do not currently transfer personal data to any such restricted jurisdiction.
+
+## 7\. Data Retention
+
+### 7.1 While Customer's Account Is Active
+
+Field Data tied to an individual Authorized User who is suspended or soft-deleted within an active Customer organization is retained for as long as Customer maintains the relevant project, record, or organization account, with the user's display name anonymized, in order to preserve the integrity of Customer's audit trail (for example, to support donor or regulatory queries against historical field submissions) — subject to Customer's own configured retention requirements, lawful instructions, and applicable legal obligations. We provide this extended retention because submission records cannot be reliably reattributed once disconnected from their originating user, and Customer may configure or request adjustments to this behavior where our tooling supports it.
+
+### 7.2 After Full Account Termination
+
+Where Customer terminates its Terriqon subscription entirely, we retain Customer Data, including Field Data, for up to 30 days to allow Customer to export its data or reverse the cancellation. Deletion from our production systems then follows within a further 90 days — meaning production deletion may occur up to approximately 120 days after account termination in total — except: (a) billing and financial records, which we retain for the period required under applicable Indian law (currently up to 8 years); (b) data we are required to retain to comply with a legal obligation or to establish, exercise, or defend legal claims; and (c) residual copies in encrypted backups, which are overwritten on a rolling cycle of approximately 90 additional days and are not used for any active purpose in the interim.
+
+### 7.3 Website and Marketing Data
+
+Analytics data is retained in accordance with our analytics provider's standard retention settings; marketing contact data is retained until you unsubscribe or request deletion.
+
+## 8\. Data Security
+
+We implement technical and organizational measures designed to protect personal data, including encryption of data in transit, role-based access control, private (non-public) cloud storage for organization files with time-limited signed URLs for downloads, and audit logging of access and administrative actions. No system can be guaranteed completely secure; we encourage Customer to use strong, unique credentials and to promptly report any suspected unauthorized access to support@terriqon.com.
+
+## 9\. Your Rights
+
+### 9.1 Rights under the DPDP Act (India)
+
+If you are a Data Principal under the DPDP Act, you have the right to:
+
+- Obtain a summary of the personal data we process about you and the processing activities undertaken;
+- Request correction, completion, or updating of your personal data;
+- Request erasure of your personal data, where it is no longer necessary for the purpose for which it was collected, subject to our legal retention obligations;
+- Nominate another individual to exercise these rights on your behalf in the event of death or incapacity;
+- Withdraw consent, where processing is based on consent, as easily as it was given;
+- Lodge a grievance with our Grievance Officer (Section 15) and, if unresolved, with the Data Protection Board of India.
+
+### 9.2 Rights under the GDPR (EU/EEA Individuals)
+
+If you are located in the EU/EEA, you additionally have the right to: access your personal data; rectify inaccurate data; erase your data ("right to be forgotten"); restrict or object to certain processing; receive your data in a portable format; and lodge a complaint with your local supervisory authority.
+
+### 9.3 How to Exercise Your Rights
+
+Requests can be sent to support@terriqon.com. Where the request concerns Field Data for which Customer is the Data Fiduciary/Controller (Section 1.2), we may direct you to submit the request to Customer directly, and will support Customer in fulfilling it. We will respond within the timeframe required by applicable law.
+
+## 10\. Cookies and Tracking Technologies
+
+Our website and Platform use cookies and similar technologies as described in our Cookies Policy, which explains the categories of cookies we use, how consent is obtained where required, and how to manage your preferences.
+
+## 11\. Children's Data
+
+The Platform is designed for use by adult professionals acting on behalf of an organization and is not directed at children. We do not knowingly collect account data from individuals under 18. Field Data collected by Customer through the Platform may, in the ordinary course of Customer's field operations (for example, health or education program monitoring), describe children as beneficiaries or program participants. Responsibility for that Field Data rests with Customer as the Data Fiduciary/Controller under Section 1.2, including obtaining verifiable parental or guardian consent where required, providing age-appropriate notices, applying data minimization, restricting access to such records, and avoiding placement of children's identifying data in fields that feed AI processing. These obligations are set out contractually in our Terms of Service and, for GDPR-covered customers, in our Data Processing Agreement.
+
+## 12\. Data Breach Notification
+
+In the event of a personal data breach that poses a risk to individuals, we will notify affected Customers without undue delay and, where reasonably practicable, within 48 hours of confirming the breach, and will notify the Data Protection Board of India, supervisory authorities, or affected individuals directly where required under applicable law, including the DPDP Act and, where applicable, the GDPR's 72-hour notification requirement to supervisory authorities.
+
+## 13\. EU Representative and Data Protection Officer
+
+We have not appointed a formal Data Protection Officer under GDPR Article 37, as our processing activities do not currently meet the thresholds that make this mandatory (large-scale systematic monitoring or large-scale processing of special category data as a core activity). Where GDPR Article 27 requires us to appoint a representative in the European Union, we will appoint one and publish their contact details in this Policy; we keep this assessment under active review as our EU-related processing activities evolve, rather than treating any exemption as a fixed, permanent conclusion. In the interim, our Grievance Officer (Section 19 of our Terms of Service; Section 15 below) serves as the point of contact for all privacy-related inquiries, including from EU data subjects.
+
+## 14\. Changes to This Policy
+
+We may update this Policy from time to time. Material changes will be reflected in an updated Effective Date, and where required by law, we will provide advance notice to Customer's account administrator by email and/or an in-app notice.
+
+## 15\. Grievance Officer and Contact
+
+In accordance with the DPDP Act and applicable Indian law, we have appointed the following Grievance Officer:
+
+Grievance Officer: Ved Prakash
+
+Email: [ved@epixelsoftware.com](mailto:ved@epixelsoftware.com)
+
+Address: 1415-B, Jain Nagar Karala, New Delhi, Delhi, India – 110081
+
+For general privacy inquiries, you may also contact:
+
+Epixel Software Private Limited
+
+Support email: [support@terriqon.com](mailto:support@terriqon.com)
+
+Domestic support phone: +91-9354325271

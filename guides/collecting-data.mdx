@@ -1,0 +1,112 @@
+---
+title: "Collect Field Data Online and Offline with Terriqon"
+sidebarTitle: "Collecting Data"
+description: "Field officers collect data using the Terriqon PWA — works on Android, iOS, and desktop. Forms work offline and auto-sync when connectivity returns."
+---
+
+Terriqon's mobile app is a Progressive Web App (PWA) — it runs in any modern browser, installs directly to the home screen of any Android or iOS device, and works in full without a network connection. Field officers can open a form, fill it in, capture GPS coordinates and photos, and submit data in areas with zero signal. When connectivity returns, everything syncs automatically. This guide walks your field team through installation, form access, data capture, and offline workflows.
+
+## Installing the Terriqon PWA
+
+No app store is required. Your field officers install Terriqon directly from the browser in seconds.
+
+<Tabs>
+  <Tab title="Android">
+    <Steps>
+      <Step title="Open terriqon.com in Chrome">
+        Launch **Chrome** on the Android device and navigate to **terriqon.com**.
+      </Step>
+      <Step title="Tap the three-dot menu">
+        Tap the **⋮** (three-dot) menu in the top-right corner of Chrome.
+      </Step>
+      <Step title="Tap Add to Home Screen">
+        Tap **Add to Home Screen**, confirm the name, and tap **Add**. The Terriqon icon appears on the home screen like any other app.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="iOS">
+    <Steps>
+      <Step title="Open terriqon.com in Safari">
+        Launch **Safari** on the iPhone or iPad and navigate to **terriqon.com**. The PWA install prompt only appears in Safari on iOS — other browsers will not offer the Add to Home Screen option.
+      </Step>
+      <Step title="Tap the Share icon">
+        Tap the **Share** icon (the box with an arrow pointing up) at the bottom of the screen.
+      </Step>
+      <Step title="Tap Add to Home Screen">
+        Scroll down in the share sheet and tap **Add to Home Screen**. Confirm the name and tap **Add**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Desktop">
+    <Steps>
+      <Step title="Open terriqon.com in your browser">
+        Navigate to **terriqon.com** in Google Chrome or Microsoft Edge.
+      </Step>
+      <Step title="Click the install icon">
+        Click the **install icon** (a monitor with a down arrow) that appears in the browser address bar on the right side. If you don't see it, open the browser menu and look for **Install Terriqon**.
+      </Step>
+      <Step title="Confirm installation">
+        Click **Install** in the prompt. Terriqon opens as a standalone desktop app and is added to your taskbar or applications folder.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Logging In and Accessing Forms
+
+On first launch, your field officer logs in with the email address and password they set when accepting their invitation. After logging in:
+
+- Assigned forms appear as cards on the **Home** screen, grouped by project.
+- All assigned forms are **cached locally** during the first online session. From that point on, forms are available even without a network connection.
+- Any form updates published by a manager are downloaded automatically the next time the device connects to the internet.
+
+<Warning>
+  Log in and download forms while online before going into the field. The app cannot load new form updates without a network connection. Make sure your team connects at least once before travelling to low-signal areas.
+</Warning>
+
+## Filling In a Form
+
+<Steps>
+  <Step title="Tap the project or form name">
+    From the Home screen, tap the form you want to fill in. The form opens in full-screen mode.
+  </Step>
+  <Step title="Fill in each field">
+    Work through the form from top to bottom. Required fields are marked with a **red asterisk (\*)**. The app will not let you submit until all required fields are completed.
+  </Step>
+  <Step title="Capture GPS coordinates">
+    For GPS fields, tap **Capture Location**. The app reads the device's GPS and records the coordinates. This takes a few seconds outdoors.
+    <Tip>
+      GPS accuracy is best outdoors with a clear view of the sky. In buildings or dense cover, tap **Use my best available location** to proceed with the most accurate reading the device can provide.
+    </Tip>
+  </Step>
+  <Step title="Add photos">
+    For photo fields, tap **Take Photo** to open the camera directly, or **Choose from Gallery** to select an existing image from the device.
+  </Step>
+  <Step title="Review and submit">
+    Tap **Review** to see a summary of all your entries before sending. When you're satisfied, tap **Submit**.
+  </Step>
+  <Step title="Offline — Pending Sync">
+    If the device has no connection when you tap Submit, the submission is saved securely on the device and shows a **Pending Sync** status. No action is needed — it uploads automatically when connectivity returns.
+  </Step>
+</Steps>
+
+## Offline Submissions and Syncing
+
+Terriqon stores offline submissions in the device's local storage using encrypted on-device caching. No data is lost if the device is restarted, the browser is closed, or the battery dies before syncing.
+
+When the device reconnects to the internet:
+
+1. The app detects the connection and begins syncing automatically in the background.
+2. Each pending submission is uploaded and confirmed by the server.
+3. The submission status updates from **Pending Sync** to **Synced** in the field officer's **Submissions** tab.
+
+Field officers can check their sync status at any time by opening the **Submissions** tab and filtering by status. If a submission fails to sync (for example, due to a server error), it remains in Pending Sync status and retries the next time the app is opened online.
+
+## Saving a Draft
+
+If a field officer starts a submission but needs to stop and return to it later — to gather more information, take additional photos, or confirm a detail — they can save a draft at any point:
+
+- Tap the **Save Draft** button (available in the bottom toolbar while filling in a form).
+- The incomplete submission is saved locally and appears in the **Drafts** section of the Submissions tab.
+- Tap the draft to reopen it and continue where you left off.
+- Drafts are not submitted and do not appear in the project's submission count until they are finalised and submitted.

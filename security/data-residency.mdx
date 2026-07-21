@@ -1,0 +1,99 @@
+---
+title: "Where Your Data Lives: Terriqon Data Residency"
+sidebarTitle: "Data Residency"
+description: "Terriqon stores Customer Data — submissions, files, and reports — in AWS Ireland (eu-west-1). Multi-tenant isolation, encryption at rest, and same-region backups keep primary data within the EU."
+---
+
+Every field submission, uploaded file, and generated report you produce in Terriqon is stored in a single primary region: **AWS eu-west-1 (Ireland)**. Sub-processors we use for adjacent functions — payments, transactional email, product analytics, support chat — hold specific slices of data in the regions listed in our Privacy Policy. This page describes where each category of data lives, how tenants are isolated from each other, how backups are handled, and the safeguards that apply when data does cross a border.
+
+This page is a plain-language operational summary. For the authoritative sub-processor list and cross-border transfer mechanisms, see the [Privacy Policy §5](/security/privacy-policy#5-sub-processors) and [§6](/security/privacy-policy#6-cross-border-data-transfers).
+
+## Primary Data Residency: AWS Ireland
+
+Terriqon's production infrastructure runs in **Amazon Web Services eu-west-1 (Ireland)**. All three data stores that hold your Customer Data live in this region:
+
+| Data | Where it lives |
+| --- | --- |
+| **Field submissions, projects, KPIs, activities, forms, users, audit logs** | Managed MySQL database (RDS) in eu-west-1 |
+| **Uploaded files** — attachments, images, signatures, documents | Private S3 bucket in eu-west-1 |
+| **Application processing** | Compute in a private VPC in eu-west-1 |
+
+Customer Data does not leave Ireland for primary storage or processing. Submissions and uploads are transmitted directly to the eu-west-1 region and stored there. AI-generated reports are also produced from data in this region.
+
+## Multi-Tenant Isolation: Dedicated Database Per Organization
+
+Rather than sharing a single database across all customers, Terriqon provisions a **dedicated database per organization**. When your organization is verified for the first time, a fresh database is provisioned for you — with its own name and its own set of tables — and every subsequent submission, project, KPI, and report is stored there.
+
+This has three practical consequences:
+
+- **Physical separation at the database layer.** Your organization's data is not co-mingled with any other organization's records. Isolation is enforced by database boundary, not by a `WHERE organization_id = ?` clause.
+- **Cross-tenant leakage risk is drastically reduced.** A query bug in the application can't accidentally expose one organization's data to another because the queries are running against a different database entirely.
+- **Restore and export operations are scoped per-tenant.** If you need to restore your organization's data from backup, that operation touches only your database — no other tenant is affected.
+
+A small "landlord" database holds only cross-organization identity records — organization names, user accounts, organization-to-user assignments. Everything your team actually collects lives in your organization-specific database.
+
+## Encryption
+
+**At rest.** All Customer Data is encrypted at rest using AWS KMS with customer-managed keys, at every storage layer:
+
+- Database (RDS)
+- File storage (S3)
+- Application server disks (EBS)
+- Configuration and secret stores (SSM Parameter Store, AWS Secrets Manager)
+
+**In transit.** Every connection is TLS-encrypted:
+
+- End-user browsers and mobile devices → Terriqon: TLS via the Cloudflare edge
+- Terriqon application → database: TLS is **required** — the database rejects non-TLS connections outright
+- Terriqon → S3, KMS, SSM: TLS
+- Terriqon → sub-processors (Stripe, ZeptoMail, etc.): TLS
+
+## Backups
+
+All backups stay in the same eu-west-1 region as your primary data — your data does not leave Ireland for backup purposes.
+
+- **Database:** 7-day automated backup retention with point-in-time recovery (PITR). Deletion protection is enabled on the database itself, so it cannot be dropped accidentally.
+- **File storage:** S3 versioning is enabled on the documents bucket. A file that's overwritten or deleted can be recovered from a prior version.
+- **Configuration:** Infrastructure state and secret metadata are stored in versioned, KMS-encrypted buckets so the environment can be redeployed from source if needed.
+
+<Note>
+  Backups are currently retained in the same eu-west-1 region as primary data. Recovery from a regional AWS outage relies on re-deploying from our infrastructure-as-code configuration rather than a warm cross-region copy. Off-region backup replication is a candidate on our resilience roadmap; contact us if this matters for your organization's requirements.
+</Note>
+
+## Sub-Processors: Where Adjacent Data Sits
+
+For functions outside the core Customer Data path — payment processing, transactional email, product analytics, support chat, and AI report generation — Terriqon uses a small set of sub-processors. Not all of them are in the EU, and each processes only the specific slice of data needed for its function.
+
+Broadly:
+
+- **EU / EEA:** primary Customer Data (Ireland), and support chat (France).
+- **Global edge network:** Cloudflare's CDN and DDoS protection use edge nodes worldwide, but the origin data itself remains in eu-west-1.
+- **United States:** payment processing (with EU-region Stripe endpoints where applicable), transactional and marketing email, product analytics, and internal business intelligence.
+- **Pending confirmation:** the AI report generation sub-processor. Provider selection and applicable regional safeguards are being finalized; the specific provider and location will be published in the Privacy Policy once confirmed.
+
+For the current authoritative sub-processor list — with each sub-processor's specific purpose and region — see [Privacy Policy §5](/security/privacy-policy#5-sub-processors). If a material change affects the transfer of personal data, we update the sub-processor list and the effective date on the Privacy Policy.
+
+## Cross-Border Data Transfers
+
+When personal data does move between jurisdictions — for example, when a US sub-processor handles a slice of data on behalf of an EU/EEA customer — Terriqon relies on the transfer mechanisms set out in the Privacy Policy:
+
+- **EU / EEA data:** the European Commission's Standard Contractual Clauses (SCCs), where applicable.
+- **UK data:** the UK International Data Transfer Addendum, where applicable.
+- **India (DPDP Act):** cross-border transfers are permitted except to jurisdictions restricted by the Government of India. Terriqon does not currently transfer personal data to any restricted jurisdiction.
+
+See [Privacy Policy §6](/security/privacy-policy#6-cross-border-data-transfers) for the full detail.
+
+## What This Means for Compliance
+
+- **GDPR.** Primary storage of Customer Data in Ireland (EU) means your data is stored inside the EEA by default. Terriqon strictly follows GDPR principles, though it does not hold a formal certification.
+- **DPDP Act (India).** Cross-border storage in Ireland is permitted under the DPDP Act's transfer provisions. Ireland is not currently on the restricted-jurisdictions list.
+- **HIPAA.** Terriqon does not currently offer a HIPAA-compliant deployment. If your programme handles protected health information, contact us before signing on so we can discuss appropriate scope.
+- **Donor and funder residency requirements.** Many funders require data on beneficiaries to remain within specific jurisdictions. eu-west-1 (Ireland) satisfies the EU residency requirements most commonly written into grant agreements. For funders requiring other specific regions, contact us to discuss options.
+
+## Regional Coverage Roadmap
+
+Terriqon operates in a single region today (eu-west-1 Ireland). Additional regions — for example India, an African region, or the United States — are being evaluated based on customer demand. If your organization has a specific residency requirement not covered by the current single-region deployment, contact us and we can discuss scope, timing, and pricing.
+
+## Questions
+
+For data residency questions specific to your organization — including questions about specific sub-processors, transfer mechanisms, or region-specific compliance requirements — contact [support@terriqon.com](mailto:support@terriqon.com) or your account manager.

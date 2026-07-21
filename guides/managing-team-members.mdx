@@ -1,0 +1,150 @@
+---
+title: "Invite, Assign, and Manage Your Team in Terriqon"
+sidebarTitle: "Team Members"
+description: "Invite Managers and Field Officers, assign them to projects and forms, archive and reactivate them, and keep your combined seat usage under your plan's cap."
+---
+
+Your team in Terriqon is made up of **Managers** (who run projects, review submissions, and approve reports) and **Field Officers** (who collect data on the ground). Your **Organization Admin** owns billing and account setup and doesn't consume a seat. This guide walks you through inviting both roles, assigning them to the work that matches their role, archiving them when they cycle off, and keeping your combined seat usage inside your plan's cap.
+
+For the underlying model — what each role can do, and how seats are counted — see [Roles & Seats](/concepts/roles-and-seats).
+
+## Inviting Team Members
+
+The same invite flow covers both Managers and Field Officers — you pick the role during the invite.
+
+<Steps>
+  <Step title="Go to Team in the left sidebar">
+    Click **Team** in the left sidebar to open your organization's user roster.
+  </Step>
+  <Step title="Click Invite">
+    Click the **Invite** button in the top-right corner of the Team page.
+  </Step>
+  <Step title="Enter email addresses and choose a role">
+    Type the email address of the person you want to invite and select their role — **Manager** or **Field Officer**. To invite multiple people at once, enter each address on a new line or separated by commas; you can mix roles in the same invite by selecting a different role per line.
+  </Step>
+  <Step title="Assign to projects or forms (optional)">
+    You can assign a Manager to one or more **projects** at invite time so they land straight into the work they need to oversee. Field Officers are assigned to specific **forms** — you can do this at invite time too, or skip it and assign them from the form settings later.
+  </Step>
+  <Step title="Click Send Invites">
+    Each invitee receives an email with a personalized acceptance link.
+  </Step>
+  <Step title="They accept and install the PWA">
+    When someone accepts the invite, they set a password. Field Officers are then prompted to install the Terriqon PWA on their device — see [Collecting Data](/guides/collecting-data) for the installation instructions you can share with them.
+  </Step>
+</Steps>
+
+## Tracking Invite Status
+
+After sending invites, monitor progress from the **Team** page. Every Manager and Field Officer is in one of three states:
+
+| Status | Meaning | Uses a seat? |
+| --- | --- | --- |
+| **Pending** | Invite sent but not yet accepted | No |
+| **Active** | Invite accepted; the person can sign in and use Terriqon | Yes |
+| **Archived** | On your roster with full profile and history, but blocked from signing in | No |
+
+Because **Pending** invites don't use a seat, you can queue people in advance without eating into your cap. The seat is only consumed once they accept and become Active.
+
+<Note>
+  Your **Organization Admin** never counts toward your seat cap. There's exactly one Admin per account, and they own billing.
+</Note>
+
+## Assigning Team Members to Work
+
+The role decides what someone gets assigned to.
+
+### Assigning Managers to Projects
+
+Managers oversee projects — they build and assign forms, review submissions, and approve reports for the project they're on.
+
+<Steps>
+  <Step title="Open the project">
+    Navigate to **Projects** in the left sidebar and click the project you want to manage.
+  </Step>
+  <Step title="Open Donors & Managers">
+    Inside the project, open the **Donors & Managers** tab.
+  </Step>
+  <Step title="Add or remove a Manager">
+    Click **Add Manager** to assign someone from your roster. To remove a Manager, open the stakeholder card and click **Unassign**.
+  </Step>
+</Steps>
+
+Removing a Manager from a project doesn't archive their account or delete anything — it just removes their oversight of that specific project.
+
+### Assigning Field Officers to Forms
+
+Field Officers are assigned per form, not per project. Only the officers you assign to a form see it on their device.
+
+<Steps>
+  <Step title="Open the form">
+    Navigate to the form (either from **Forms** in the sidebar or inside a project's **Forms** tab) and open its settings.
+  </Step>
+  <Step title="Manage assigned Field Officers">
+    In the form's settings, add or remove Field Officers from the assigned list. Changes take effect the next time each device syncs.
+  </Step>
+</Steps>
+
+A Field Officer can be assigned to as many forms as they need to work on — a registration form, a monthly follow-up form, an exit interview form, all at once.
+
+## Archiving and Reactivating
+
+When someone cycles off your team — a project phase ends, a Manager moves to a different portfolio, a Field Officer finishes a seasonal contract — **archive** their account rather than deleting it.
+
+<Steps>
+  <Step title="Open the Team page">
+    Go to **Team** in the left sidebar and find the person in the roster.
+  </Step>
+  <Step title="Archive the account">
+    Open their profile, click the three-dot menu, and select **Archive**. The seat is released immediately, and their profile and history are preserved.
+  </Step>
+</Steps>
+
+Archiving does three things at once:
+
+- **Frees the seat** so someone else can take an active slot on your plan.
+- **Blocks access** to the platform and the mobile app — an archived member cannot sign in.
+- **Preserves all history** — submissions, project assignments, review actions, and audit trail entries remain intact and attributed.
+
+To bring someone back later, open their archived profile and click **Reactivate**. This only works if you have a free active seat on your current plan — if you're at your cap, either archive someone else first or upgrade your plan.
+
+<Tip>
+  Archive rather than delete when someone cycles off a phase. Reactivating them for the next phase is one click and keeps all their historical submissions attributable to the right person.
+</Tip>
+
+## Seat Limits by Plan
+
+Your plan's seat limit is a **combined pool** shared by active Managers and active Field Officers, in any mix. Alongside your active cap, each plan also allows an equal-sized archived roster.
+
+<CardGroup cols={3}>
+  <Card title="Field" icon="seedling">
+    Up to **15 active** seats (Managers \+ Field Officers combined)
+
+    Up to **15 archived** on the roster
+  </Card>
+
+  <Card title="Ops" icon="chart-line">
+    Up to **50 active** seats (Managers \+ Field Officers combined)
+
+    Up to **50 archived** on the roster
+  </Card>
+
+  <Card title="Command" icon="building">
+    Up to **150 active** seats (Managers \+ Field Officers combined)
+
+    Up to **150 archived** on the roster
+  </Card>
+</CardGroup>
+
+On the Field plan, for example, you could run 3 Managers and 12 Field Officers, or 15 Field Officers and no extra Managers, or any other mix up to 15 active members.
+
+To stay inside your cap:
+
+- **Archive** people who are between phases or off the project — the seat is released immediately.
+- **Upgrade your plan** from **Settings → Billing → Change Plan** if your team has grown beyond your current tier.
+- **Review the roster** regularly from the Team page — the seat counter shows current usage across both roles.
+
+If you're on the Command plan and need capacity beyond 150 active seats, contact your account manager to discuss a custom arrangement.
+
+<Note>
+  Only the Organization Admin can change plans or manage billing. Managers and Field Officers don't see billing settings.
+</Note>
