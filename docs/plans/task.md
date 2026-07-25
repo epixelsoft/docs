@@ -4,4 +4,4 @@
 | Create implementation plan | Completed | Implementation and validation steps recorded in `2026-07-25-manage-login-details.md`. |
 | Add login-details page | Completed | Added and reviewed the task-focused Mintlify page with three procedures. |
 | Update Mintlify navigation | Completed | Added the page as the first Account & Billing entry in `docs.json`; JSON and targets validated. |
-| Validate and publish | In progress | Run full branch validation and open a draft pull request targeting `main`. |
+| Validate and publish | Completed | Full branch validation passed; publish `codex/manage-login-details` through a draft pull request targeting `main`. |
