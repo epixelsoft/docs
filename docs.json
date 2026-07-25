@@ -67,6 +67,7 @@
           {
             "group": "Account & Billing",
             "pages": [
+              "account/manage-login-details",
               "account/plans-and-pricing",
               "account/managing-your-subscription",
               "account/cancellation-and-refunds"
