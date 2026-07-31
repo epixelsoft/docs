@@ -7,6 +7,6 @@
 | Validate and publish | Completed | Full branch validation passed; publish `codex/manage-login-details` through a draft pull request targeting `main`. |
 | Design install-app documentation | Completed | Approved design recorded in `2026-07-31-install-app-guide-design.md`. |
 | Create install-app implementation plan | Completed | Implementation and validation steps recorded in `2026-07-31-install-app-guide.md`. |
-| Add install-app guide | Pending | Create the task-focused iOS, iPadOS, and Android installation page. |
-| Update Get Started navigation | Pending | Add the page between Quickstart and How It Works in `docs.json`. |
+| Add install-app guide | Completed | Added and reviewed the iOS, iPadOS, and Android installation page. |
+| Update Get Started navigation | In progress | Add the page between Quickstart and How It Works in `docs.json`. |
 | Validate and publish install-app guide | Pending | Validate the branch, push it, and open a draft pull request targeting `main`. |
