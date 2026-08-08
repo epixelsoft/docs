@@ -100,16 +100,6 @@
   },
   "redirects": [
     {
-      "source": "/index",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/concepts/projects-and-forms",
       "destination": "/concepts/projects",
       "permanent": true
