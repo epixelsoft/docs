@@ -71,7 +71,8 @@
               "account/manage-login-details",
               "account/plans-and-pricing",
               "account/managing-your-subscription",
-              "account/cancellation-and-refunds"
+              "account/cancellation-and-refunds",
+              "field-officers/delete-account"
             ]
           },
           {
